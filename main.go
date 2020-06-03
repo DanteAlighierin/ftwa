@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"io/ioutil"
 	"net/http"
 )
 
@@ -18,7 +19,7 @@ func uploadFile(w http.ResponseWriter, r *http.Request) {
 		fmt.Println("err")
 		return
 	}
-	defer fiele.Close()
+	defer file.Close()
 	fmt.Printf("Uploaded file: %+v\n", handler.Filename)
 	fmt.Printf("File Size: %+v\n", handler.Filename)
 	fmt.Printf("MIME type: %+v\n", handler.Header)

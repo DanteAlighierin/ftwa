@@ -1,23 +1,20 @@
 package main
 
-import {
-	"net/http"
+import (
 	"fmt"
-}
+	"net/http"
+)
 
-
-func uploadFile(w http.ResponseWriter, r *http.Request){
+func uploadFile(w http.ResponseWriter, r *http.Request) {
 	fmt.Fprintf(w, "Uploading File")
 }
 
-
-func setupRotes(){
-	http.HandleFunc("/upload", uploadFile")
-	http.ListenAndServe("8000",nil)
+func setupRoutes() {
+	http.HandleFunc("/upload", uploadFile)
+	http.ListenAndServe("8000", nil)
 }
 
-
-func main(){
+func main() {
 	fmt.Println("Go File Upload")
 	setupRoutes()
 }

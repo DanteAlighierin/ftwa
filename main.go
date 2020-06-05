@@ -49,5 +49,9 @@ func setupRoutes() {
 
 func main() {
 	fmt.Println("Go File Upload")
+	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
+		http.ServeFile(w, r, "static/index.html")
+	})
 	setupRoutes()
+
 }

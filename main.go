@@ -25,7 +25,7 @@ func uploadFile(w http.ResponseWriter, r *http.Request) {
 	fmt.Printf("MIME type: %+v\n", handler.Header)
 
 	//3. write temp file to server
-	tempFile, err := ioutil.TempFile("temp-images", "upload-*.png")
+	tempFile, err := ioutil.TempFile("./temp-images", "upload-*.png")
 	if err != nil {
 		fmt.Println(err)
 		return
@@ -39,11 +39,11 @@ func uploadFile(w http.ResponseWriter, r *http.Request) {
 	tempFile.Write(fileBytes)
 
 	//4. return whether or not  this has ben succesful
-	//fmt.Fprintf(w, "Successfully Uploaded File\n")
+	fmt.Fprintf(w, "Successfully Uploaded File\n")
 }
 
 func setupRoutes() {
-	//http.HandleFunc("/upload", uploadFile)
+	http.HandleFunc("/upload", uploadFile)
 	http.ListenAndServe(":8080", nil)
 }
 

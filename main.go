@@ -39,19 +39,20 @@ func uploadFile(w http.ResponseWriter, r *http.Request) {
 	tempFile.Write(fileBytes)
 
 	//4. return whether or not  this has ben succesful
-	fmt.Fprintf(w, "Successfully Uploaded File\n")
+	//fmt.Fprintf(w, "Successfully Uploaded File\n")
 }
 
 func setupRoutes() {
-	http.HandleFunc("/upload", uploadFile)
+	//http.HandleFunc("/upload", uploadFile)
 	http.ListenAndServe(":8080", nil)
 }
 
 func main() {
 	fmt.Println("Go File Upload")
-	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
-		http.ServeFile(w, r, "static/index.html")
-	})
+	//	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
+	//		http.ServeFile(w, r, "static/index.html")
+	//
+	//})
 	setupRoutes()
 
 }

@@ -49,6 +49,7 @@ func setupRoutes() {
 
 func main() {
 	fmt.Println("Go File Upload")
+	fmt.Println("The app is running at http://localhost:8080/static")
 	http.Handle("/static/", http.StripPrefix("/static/", http.FileServer(http.Dir("static"))))
 	setupRoutes()
 

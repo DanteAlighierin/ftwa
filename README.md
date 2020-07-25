@@ -6,3 +6,5 @@ file transfer web application
 - git synchronization
 - encryption
 - convenient and nice looking interface
+   - file preview
+

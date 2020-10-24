@@ -73,7 +73,7 @@ func main() {
     //fmt.Println(ip.externalIP())
 
 //then this piece of code will run the module, and not the shit that I wrote below
-:wa
+
     ip, err := externalIP()
 	if err != nil {
 		fmt.Println(err)
@@ -121,7 +121,7 @@ func externalIP() (string, error) {
 			if ip == nil {
 				continue // not an ipv4 address
 			}
-			return ip.String(), nil
+            return "Adress in your local network: http://" + ip.String() + ":8080/static", nil
 		}
 	}
 	return "", errors.New("are you connected to the network?")

@@ -69,7 +69,7 @@ func setupRoutes() {
 
 func main() {
 	fmt.Println("Go File Upload")
-	fmt.Println("The app is running at http://localhost:8080/static")
+	fmt.Println("The app is running at http://localhost:8080")
     //fmt.Println(ip.externalIP())
 
 //then this piece of code will run the module, and not the shit that I wrote below
@@ -83,7 +83,7 @@ func main() {
 
 
 
-	http.Handle("/static/", http.StripPrefix("/static/", http.FileServer(http.Dir("static"))))
+	http.Handle("/", http.StripPrefix("/", http.FileServer(http.Dir("static"))))
 	setupRoutes()
 
 }
@@ -121,7 +121,7 @@ func internalIP() (string, error) {
 			if ip == nil {
 				continue // not an ipv4 address
 			}
-            return "Adress in your local network: http://" + ip.String() + ":8080/static", nil
+            return "Adress in your local network: http://" + ip.String() + ":8080", nil
 		}
 	}
 	return "", errors.New("are you connected to the network?")

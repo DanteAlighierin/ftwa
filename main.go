@@ -74,7 +74,7 @@ func main() {
 
 //then this piece of code will run the module, and not the shit that I wrote below
 
-    ip, err := externalIP()
+    ip, err := internalIP()
 	if err != nil {
 		fmt.Println(err)
 	}
@@ -90,7 +90,7 @@ func main() {
 
 
 //local usage; yes, this is a shitty approach, i know
-func externalIP() (string, error) {
+func internalIP() (string, error) {
 	ifaces, err := net.Interfaces()
 	if err != nil {
 		return "", err

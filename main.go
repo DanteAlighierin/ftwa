@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-  //  "os"
+    "os"
     "net"
     "errors"
     //"os/exec"
@@ -14,8 +14,13 @@ import (
 
 
 
-
-
+func getPort() string{
+    p := os.Getenv("PORT")
+    if p != ""{
+        return ":" + p
+    }
+    return ":8080"
+}
 
 
 
@@ -59,7 +64,7 @@ func uploadFile(w http.ResponseWriter, r *http.Request) {
 
 func setupRoutes() {
 	http.HandleFunc("/upload", uploadFile)
-	http.ListenAndServe(":8080", nil)
+	http.ListenAndServe(getPort(), nil)
 }
 
 

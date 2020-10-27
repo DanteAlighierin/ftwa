@@ -2,10 +2,31 @@ package main
 
 import (
 	"fmt"
+    "os"
+    "net"
+    "errors"
+    //"os/exec"
 	"io/ioutil"
 	"net/http"
+
+    
 	"os"
+
 )
+
+
+
+func getPort() string{
+    p := os.Getenv("PORT")
+    if p != ""{
+        return ":" + p
+    }
+    return ":8080"
+}
+
+
+
+
 
 func uploadFile(w http.ResponseWriter, r *http.Request) {
 	fmt.Fprintf(w, "Uploading File\n")
@@ -45,13 +66,78 @@ func uploadFile(w http.ResponseWriter, r *http.Request) {
 
 func setupRoutes() {
 	http.HandleFunc("/upload", uploadFile)
-	http.ListenAndServe(":"+os.Getenv("PORT"), nil)
+
+	http.ListenAndServe(getPort(), nil)
+
 }
+
+
+
+
+
 
 func main() {
 	fmt.Println("Go File Upload")
-	fmt.Println("The app is running at http://localhost:8080/static")
-	http.Handle("/static/", http.StripPrefix("/static/", http.FileServer(http.Dir("static"))))
+	fmt.Println("The app is running at http://localhost:8080")
+    //fmt.Println(ip.externalIP())
+
+//then this piece of code will run the module, and not the shit that I wrote below
+
+    ip, err := internalIP()
+	if err != nil {
+		fmt.Println(err)
+	}
+	fmt.Println(ip)
+
+
+
+
+	http.Handle("/", http.StripPrefix("/", http.FileServer(http.Dir("static"))))
 	setupRoutes()
 
 }
+
+
+//local usage; yes, this is a shitty approach, i know
+func internalIP() (string, error) {
+	ifaces, err := net.Interfaces()
+	if err != nil {
+		return "", err
+	}
+	for _, iface := range ifaces {
+		if iface.Flags&net.FlagUp == 0 {
+			continue // interface down
+		}
+		if iface.Flags&net.FlagLoopback != 0 {
+			continue // loopback interface
+		}
+		addrs, err := iface.Addrs()
+		if err != nil {
+			return "", err
+		}
+		for _, addr := range addrs {
+			var ip net.IP
+			switch v := addr.(type) {
+			case *net.IPNet:
+				ip = v.IP
+			case *net.IPAddr:
+				ip = v.IP
+			}
+			if ip == nil || ip.IsLoopback() {
+				continue
+			}
+			ip = ip.To4()
+			if ip == nil {
+				continue // not an ipv4 address
+			}
+            return "Adress in your local network: http://" + ip.String() + ":8080", nil
+		}
+	}
+	return "", errors.New("are you connected to the network?")
+}
+
+
+
+
+
+

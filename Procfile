@@ -1,1 +1,1 @@
-web: test
+web: bin/ftwa

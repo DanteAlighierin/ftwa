@@ -8,8 +8,10 @@ import (
     //"os/exec"
 	"io/ioutil"
 	"net/http"
-    //"syscall"
-    //"github.com/DanteAlighierin/ftwa/ip"
+
+    
+	"os"
+
 )
 
 
@@ -64,7 +66,9 @@ func uploadFile(w http.ResponseWriter, r *http.Request) {
 
 func setupRoutes() {
 	http.HandleFunc("/upload", uploadFile)
+
 	http.ListenAndServe(getPort(), nil)
+
 }
 
 

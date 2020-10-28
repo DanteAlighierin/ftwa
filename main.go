@@ -26,14 +26,14 @@ func getPort() string{
 
 
 
-func uploadFile(w http.ResponseWriter, r *http.Request) {
+func uploadFile(w http.ResponseWriter, req *http.Request) {
 	fmt.Fprintf(w, "Uploading File\n")
 
 	///1. parse input, , type multipart/form-data
-	r.ParseMultipartForm(10 << 20)
+	req.ParseMultipartForm(10 << 20)
 
 	//2. retrieve file from posted form data
-	file, handler, err := r.FormFile("myFile")
+	file, handler, err := req.FormFile("myFile")
 	if err != nil {
 		fmt.Println("Error")
 		fmt.Println("err")
@@ -64,7 +64,8 @@ func uploadFile(w http.ResponseWriter, r *http.Request) {
 
 func setupRoutes() {
 	http.HandleFunc("/upload", uploadFile)
-	http.ListenAndServe(getPort(), nil)
+	//http.ListenAndServe(getPort(), nil)
+    http.ListenAndServeTLS(getPort(), "server.crt", "server.key", nil)
 }
 
 

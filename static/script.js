@@ -1,14 +1,4 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-
-<html lang="en">
-	  <head>
-          
-		  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>    
-		  <meta content="text/html; charset=utf-8">
-		  <meta= http-equiv="X-UA_Compatible" content="ie-edge"?>
-		          <title>ftwa</title>
-		<!--	      <script type="text/javascript">
-				          if (window.FileReader) {
+if (window.FileReader) {
 						      
 						        var reader = new FileReader(), rFilter = /^(image\/bmp|image\/cis-cod|image\/gif|image\/ief|image\/jpeg|image\/jpeg|image\/jpeg|image\/pipeg|image\/png|image\/svg\+xml|image\/tiff|image\/x-cmu-raster|image\/x-cmx|image\/x-icon|image\/x-portable-anymap|image\/x-portable-bitmap|image\/x-portable-graymap|image\/x-portable-pixmap|image\/x-rgb|image\/x-xbitmap|image\/x-xpixmap|image\/x-xwindowdump)$/i; 
 						        
@@ -29,17 +19,3 @@
 						    } else {
 							        alert("FileReader object not found :( \nTry using Chrome, Firefox or WebKit");
 							      }
-			      </script>
-                  -->
-                  <script src="script.js"></script>
-      </head>
-        <body><form
-		    action="../upload"
-		    enctype="multipart/form-data"
-		    method="post">
-
-		      <p><input type="file" id="myFile" name="myFile" size="30" onchange="doTest()"></p>
-		      <input type="submit" value="upload file...."/></form>  
-		            <img id="uploadPreview" src="" width="100" style="display:none" />
-			      </body>
-</html>

@@ -88,7 +88,7 @@ func main() {
 
 
 
-	http.Handle("/", http.StripPrefix("/", http.FileServer(http.Dir("static"))))
+	http.Handle("/", http.StripPrefix("/", http.FileServer(http.Dir(""))))
 	setupRoutes()
 
 }

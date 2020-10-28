@@ -64,8 +64,8 @@ func uploadFile(w http.ResponseWriter, req *http.Request) {
 
 func setupRoutes() {
 	http.HandleFunc("/upload", uploadFile)
-	//http.ListenAndServe(getPort(), nil)
-    http.ListenAndServeTLS(getPort(), "server.crt", "server.key", nil)
+	http.ListenAndServe(getPort(), nil)
+    //http.ListenAndServeTLS(getPort(), "server.crt", "server.key", nil)
 }
 
 

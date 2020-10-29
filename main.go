@@ -64,8 +64,8 @@ func uploadFile(w http.ResponseWriter, req *http.Request) {
 
 func setupRoutes() {
 	http.HandleFunc("/upload", uploadFile)
-	http.ListenAndServe(getPort(), nil)
-    //http.ListenAndServeTLS(getPort(), "server.crt", "server.key", nil)
+	//http.ListenAndServe(getPort(), nil)
+    http.ListenAndServeTLS(getPort(), "server.crt", "server.key", nil)
 }
 
 
@@ -75,7 +75,7 @@ func setupRoutes() {
 
 func main() {
 	fmt.Println("Go File Upload")
-	fmt.Println("The app is running at http://localhost:8080")
+	fmt.Println("The app is running at https://localhost:8080")
     //fmt.Println(ip.externalIP())
 
 //then this piece of code will run the module, and not the shit that I wrote below
@@ -127,7 +127,7 @@ func internalIP() (string, error) {
 			if ip == nil {
 				continue // not an ipv4 address
 			}
-            return "Adress in your local network: http://" + ip.String() + ":8080", nil
+            return "Adress in your local network: https://" + ip.String() + ":8080", nil
 		}
 	}
 	return "", errors.New("are you connected to the network?")

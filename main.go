@@ -27,7 +27,11 @@ func getPort() string{
 
 
 func uploadFile(w http.ResponseWriter, req *http.Request) {
-	fmt.Fprintf(w, "Uploading File\n")
+	//fmt.Fprintf(w, "Uploading File\n")
+    
+    
+
+
 
 	///1. parse input, , type multipart/form-data
 	req.ParseMultipartForm(10 << 20)
@@ -59,15 +63,23 @@ func uploadFile(w http.ResponseWriter, req *http.Request) {
 	tempFile.Write(fileBytes)
 
 	//4. return whether or not  this has ben succesful
-	fmt.Fprintf(w, "Successfully Uploaded File\n")
+	//fmt.Fprintf(w, "Successfully Uploaded File\n")
+    http.ServeFile(w, req, "upload")
+
+
+
 }
 
+
+
+
+
+
 func setupRoutes() {
-	http.HandleFunc("/upload", uploadFile)
+	http.HandleFunc("/upload", uploadFile)	
 	//http.ListenAndServe(getPort(), nil)
     http.ListenAndServeTLS(getPort(), "server.crt", "server.key", nil)
 }
-
 
 //just fix
 

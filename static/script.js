@@ -18,4 +18,7 @@ if (window.FileReader) {
 						          
 						    } else {
 							        alert("FileReader object not found :( \nTry using Chrome, Firefox or WebKit");
+
+
+
 							      }

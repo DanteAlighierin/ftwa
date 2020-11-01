@@ -140,7 +140,7 @@ func internalIP() (string, error) {
 			if ip == nil {
 				continue // not an ipv4 address
 			}
-            return "Adress in your local network: https://" + ip.String() + ":8080", nil
+            return "Address in your local network: https://" + ip.String() + ":8080", nil
 		}
 	}
 	return "", errors.New("are you connected to the network?")

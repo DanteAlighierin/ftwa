@@ -4,14 +4,11 @@ import (
 	"fmt"
     "os"
     "net"
+    "bytes"
     "errors"
-    //"os/exec"
 	"io/ioutil"
 	"net/http"
-    //"syscall"
-    //"github.com/DanteAlighierin/ftwa/ip"
 )
-
 
 
 func getPort() string{
@@ -21,7 +18,6 @@ func getPort() string{
     }
     return ":8080"
 }
-
 
 
 
@@ -86,7 +82,7 @@ func setupRoutes() {
 
 
 func main() {
-	fmt.Println("Go File Upload")
+	fmt.Println("Welcome to ftwa - file transfer web application.")
 	fmt.Println("The app is running at https://localhost:8080")
     //fmt.Println(ip.externalIP())
 
@@ -98,6 +94,11 @@ func main() {
 	}
 	fmt.Println(ip)
 
+    ipex, err := ExternalIP()
+    if err != nil {
+        fmt.Println(err)
+    }
+    fmt.Println("Public address: https://" + ipex + ":8080")
 
 
 
@@ -146,7 +147,30 @@ func internalIP() (string, error) {
 }
 
 
+func ExternalIP() (string, error) {
+
+	rsp, err := http.Get("https://myexternalip.com/raw")
+
+	if err != nil {
+
+		return "", err
+
+	}
+
+	defer rsp.Body.Close()
 
 
 
+	buf, err := ioutil.ReadAll(rsp.Body)
 
+	if err != nil {
+
+		return "", err
+
+	}
+
+
+
+	return string(bytes.TrimSpace(buf)), nil
+
+}

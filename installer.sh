@@ -16,3 +16,9 @@ if grep -q slackware /etc/*-release
 then sudo slackpkg install gcc-go openssl
 
 fi
+
+if grep -q nixos /etc/*-release
+
+then nix-env -i gcc-go openssl
+
+fi

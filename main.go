@@ -42,10 +42,10 @@ func uploadFile(w http.ResponseWriter, req *http.Request) {
 	defer file.Close()
 	fmt.Printf("Uploaded file: %+v\n", handler.Filename)
 	fmt.Printf("File Size: %+v\n", handler.Filename)
-	fmt.Printf("MIME type: %+v\n", handler.Header)
+    fmt.Printf("MIME type: %+v\n", handler.Header)
 
 	//3. write temp file to server
-	tempFile, err := ioutil.TempFile("./temp-images", "upload-*.png")
+	tempFile, err := ioutil.TempFile("./temp-images", "upload-*")
 	if err != nil {
 		fmt.Println(err)
 		return

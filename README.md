@@ -1,5 +1,6 @@
 # ftwa
 
+![](https://heroku-badge.herokuapp.com/?app=ftwa)
 ![](https://img.shields.io/github/languages/count/DanteAlighierin/ftwa)
 ![](https://img.shields.io/github/languages/top/DanteAlighierin/ftwa)
 ![](https://img.shields.io/github/repo-size/DanteAlighierin/ftwa)

@@ -41,7 +41,8 @@ func uploadFile(w http.ResponseWriter, req *http.Request) {
 	}
 	defer file.Close()
 	fmt.Printf("Uploaded file: %+v\n", handler.Filename)
-	fmt.Printf("File Size: %+v\n", handler.size)
+	fmt.Printf("File Size: %+v", handler.Size)
+    fmt.Printf(" KB\n")
     fmt.Printf("MIME type: %+v\n", handler.Header)
 
 	//3. write temp file to server

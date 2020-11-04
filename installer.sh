@@ -1,10 +1,10 @@
 #!/usr/bin/bash
 
 
-cat /etc/*-release #find out the distro
+#cat /etc/*-release #find out the distro
 
 
-if grep -q void /etc/*-release #Search by keyword
+if grep 'void\|gentoo' /etc/*-release #Search by keyword
 then sudo xbps-install go libressl #Installing packages using the package manager of a specific distro
 fi
 
@@ -19,13 +19,13 @@ then nix-env -i gcc-go openssl #Installing packages using the package manager of
 fi
 
 
-if grep -q "ubuntu | mint | debian" /etc/*-release #Search by keyword
+if grep -q "ubuntu\| mint\|debian" /etc/*-release #Search by keyword
 then sudo apt install golang openssl #Installing packages using the package manager of a specific distro
 fi
 
 
 
-if grep -q "arch | manjaro" /etc/*-release #Search by keyword
+if grep -q "arch\|manjaro" /etc/*-release #Search by keyword
 then sudo pacman -S golang openssl #Installing packages using the package manager of a specific distro
 fi
 

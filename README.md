@@ -2,29 +2,13 @@
 
 
 ![](https://heroku-badge.herokuapp.com/?app=ftwa)
-
-
 ![](https://img.shields.io/github/languages/count/DanteAlighierin/ftwa)
-
-
 ![](https://img.shields.io/github/languages/top/DanteAlighierin/ftwa)
-
-
 ![](https://img.shields.io/github/repo-size/DanteAlighierin/ftwa)
-
-
 ![](https://img.shields.io/github/issues-pr/DanteAlighierin/ftwa)
-
-
 ![](https://img.shields.io/github/issues-pr-closed/DanteAlighierin/ftwa)
-
-
 ![](https://img.shields.io/github/last-commit/DanteAlighierin/ftwa)
-
-
 ![](https://img.shields.io/github/contributors/DanteAlighierin/ftwa)
-
-
 ![](https://img.shields.io/github/license/DanteAlighierin/ftwa)
 
 

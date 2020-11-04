@@ -19,13 +19,13 @@ then nix-env -i gcc-go openssl #Installing packages using the package manager of
 fi
 
 
-if grep -q ubuntu /etc/*-release || if grep -q deb /etc/*-release || if grep -q mint /etc/*-release #Search by keyword
+if grep -q "ubuntu | mint | debian" /etc/*-release #Search by keyword
 then sudo apt install golang openssl #Installing packages using the package manager of a specific distro
 fi
 
 
 
-if grep -q arch /etc/*-release || if grep -q manjaro /etc/*-release #Search by keyword
+if grep -q "arch | manjaro" /etc/*-release #Search by keyword
 then sudo pacman -S golang openssl #Installing packages using the package manager of a specific distro
 fi
 
@@ -34,5 +34,6 @@ fi
 ./cert.sh #generate certificates
 
 
-echo 'Dependencies satisfied, certificates generated' 
+echo "Dependencies satisfied, certificates generated"
 echo "Enter 'go run main.go' to start the service"
+

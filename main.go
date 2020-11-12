@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
     "os"
+    "os/exec"
     "net"
     "bytes"
     "errors"
@@ -18,7 +19,6 @@ func getPort() string{
     }
     return ":8080"
 }
-
 
 
 
@@ -89,6 +89,23 @@ func main() {
 
 //then this piece of code will run the module, and not the shit that I wrote below
 
+
+    testCmd := exec.Command("qr.sh")        
+
+    testOut, err := testCmd.Output()
+
+    if err != nil {
+
+        panic(err)
+
+    } 
+
+    //fmt.Println(string(testOut))
+
+
+
+
+
     ip, err := internalIP()
 	if err != nil {
 		fmt.Println(err)
@@ -100,6 +117,8 @@ func main() {
         fmt.Println(err)
     }
     fmt.Println("Public address: https://" + ipex + ":8080")
+    fmt.Println(string(testOut))
+    
 
 
 

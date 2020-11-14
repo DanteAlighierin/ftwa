@@ -61,7 +61,7 @@ func uploadFile(w http.ResponseWriter, req *http.Request) {
 
 	//4. return whether or not  this has ben succesful
 	//fmt.Fprintf(w, "Successfully Uploaded File\n")
-    http.ServeFile(w, req, "upload")
+    http.ServeFile(w, req, "./static/upload")
 
 
 

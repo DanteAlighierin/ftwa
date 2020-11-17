@@ -36,10 +36,10 @@ file transfer web application
 
   - [x] privacy and confidentiality
 
-  - [ ] convenient and nice looking interface
+  - [x] convenient and nice looking interface
 
-    - [ ] file preview
+    - [x] file preview(now only in upload interface)
 
     - [ ] dark theme 
 
-    - [ ] adaptive design
+    - [x] adaptive design

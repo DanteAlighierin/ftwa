@@ -11,16 +11,16 @@ import (
 	"net/http"
 )
 
-
+// get port name
 func getPort() string{
     p := os.Getenv("PORT")
     if p != ""{
         return ":" + p
-    }
+    }//exception
     return ":8080"
 }
 
-
+//main func of program.
 
 func uploadFile(w http.ResponseWriter, req *http.Request) {
 	//fmt.Fprintf(w, "Uploading File\n")
@@ -39,11 +39,13 @@ func uploadFile(w http.ResponseWriter, req *http.Request) {
 		fmt.Println("err")
 		return
 	}
-	defer file.Close()
+	defer file.Close() //print file's data
 	fmt.Printf("Uploaded file: %+v\n", handler.Filename)
 	fmt.Printf("File Size: %+v", handler.Size)
     fmt.Printf(" KB\n")
     fmt.Printf("MIME type: %+v\n", handler.Header)
+
+
 
 	//3. write temp file to server
 	tempFile, err := ioutil.TempFile("./static/temp-images", "upload-*")
@@ -71,17 +73,15 @@ func uploadFile(w http.ResponseWriter, req *http.Request) {
 
 
 
-
+// upload routing
 func setupRoutes() {
 	http.HandleFunc("/upload", uploadFile)	
 	//http.ListenAndServe(getPort(), nil)
+    //forcing use of TLS(https protocol)
     http.ListenAndServeTLS(getPort(), "server.crt", "server.key", nil)
 }
 
-//just fix
-
-
-
+//greetings
 func main() {
 	fmt.Println("Welcome to ftwa - file transfer web application.")
 	fmt.Println("The app is running at https://localhost:8080")
@@ -104,7 +104,7 @@ func main() {
 
 
 
-
+//print public ip via using the module
 
     ip, err := internalIP()
 	if err != nil {
@@ -120,7 +120,7 @@ func main() {
     fmt.Println(string(testOut))
     
 
-
+// set served directory
 
 	http.Handle("/", http.StripPrefix("/", http.FileServer(http.Dir("static"))))
 	setupRoutes()
@@ -166,7 +166,7 @@ func internalIP() (string, error) {
 	return "", errors.New("are you connected to the network?")
 }
 
-
+//get external ip via OVERBLOATED FUCKING WEBSITE. Bad practice
 func ExternalIP() (string, error) {
 
 	rsp, err := http.Get("https://myexternalip.com/raw")
@@ -189,7 +189,7 @@ func ExternalIP() (string, error) {
 
 	}
 
-
+//return data
 
 	return string(bytes.TrimSpace(buf)), nil
 

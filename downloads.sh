@@ -3,7 +3,7 @@ cd static/
 
 tree  temp-images -H 'temp-images'  --noreport --charset utf-8 > indexses.html
 
-sed -i 's_<style type="text/css">_<link rel="stylesheet" type="text/css" href="style.css">_' indexses.html
+sed -i 's_<style type="text/css">_<link rel="stylesheet" type="text/css" href="downloads.css">_' indexses.html
 
 sed -i 's_Directory Tree_Downloads_' indexses.html
 

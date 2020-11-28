@@ -66,7 +66,16 @@ func uploadFile(w http.ResponseWriter, req *http.Request) {
     http.ServeFile(w, req, "./static/upload")
 
 
+//5. gen downloads page via tree util
 
+    genTree := exec.Command("downloads.sh")
+
+    genOut, err := genTree.Output()
+
+    if err != nil {
+        panic(err)
+    }
+    fmt.Println(string(genOut))
 }
 
 

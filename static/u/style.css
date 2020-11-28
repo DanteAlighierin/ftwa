@@ -19,7 +19,12 @@ font-size: 14px;
 line-height: 1;
 color: #373737;
 background: #f7f7f7;
+transition: background-color .3s;
 }
+
+
+
+
 
 /* добавим очистку потока для всех контейнеров, внутри которых задано обтекание дочерних элементов */
 

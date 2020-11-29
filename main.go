@@ -20,6 +20,23 @@ func getPort() string{
     return ":8080"
 }
 
+
+
+func generator() {
+    genTree := exec.Command("downloads.sh")
+    
+    genOut, err := genTree.Output()
+
+    if err != nil {
+
+        panic(err)
+
+    }
+
+    fmt.Println(string(genOut))
+}
+
+
 //main func of program.
 
 func uploadFile(w http.ResponseWriter, req *http.Request) {
@@ -65,17 +82,17 @@ func uploadFile(w http.ResponseWriter, req *http.Request) {
 	//fmt.Fprintf(w, "Successfully Uploaded File\n")
     http.ServeFile(w, req, "./static/upload")
 
-
+    generator()
 //5. gen downloads page via tree util
+    
+    //genTree := exec.Command("downloads.sh")
 
-    genTree := exec.Command("downloads.sh")
+    //genOut, err := genTree.Output()
 
-    genOut, err := genTree.Output()
-
-    if err != nil {
-        panic(err)
-    }
-    fmt.Println(string(genOut))
+    //if err != nil {
+      //  panic(err)
+    //}
+    //fmt.Println(string(genOut))
 }
 
 
@@ -84,7 +101,7 @@ func uploadFile(w http.ResponseWriter, req *http.Request) {
 
 // upload routing
 func setupRoutes() {
-	http.HandleFunc("/upload", uploadFile)	
+	http.HandleFunc("/upload", uploadFile)
 	//http.ListenAndServe(getPort(), nil)
     //forcing use of TLS(https protocol)
     http.ListenAndServeTLS(getPort(), "server.crt", "server.key", nil)
@@ -106,9 +123,8 @@ func main() {
     if err != nil {
 
         panic(err)
-
     } 
-
+    generator()
     //fmt.Println(string(testOut))
 
 

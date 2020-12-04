@@ -123,7 +123,7 @@ func main() {
     if err != nil {
 
         panic(err)
-    } 
+    }
     generator()
     //fmt.Println(string(testOut))
 

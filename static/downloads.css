@@ -243,56 +243,10 @@ left: -12px;
 
 }
 
-
- .switch {
-
-     font-weight:600;
-
-     display:inline-block;
-
-     align-self: flex-end;
-
-     margin: 0.9375rem;
-
- }
-
-
-.inner-switch {
-
-      display: inline-block;
-
-      cursor: pointer;
-
-      font-weight:600;
-
-      border: 2px solid #555;
-
-      border-radius: 1.25rem;
-
-      width: 3.125rem;
-
-      text-align: center;
-
-      font-size: 1rem;
-
-       padding: 0.1875rem;
-
-       margin-left: 0.3125rem;
-
-  }
-
-.dark li a{
-    color:white!important;
-}
-
-
 .dark .rounded a{
     border-left:6px solid #00c2c7;
 }
 
-.dark .home{
-    color:#00c2c7;
-}
 
 
 .dark .rounded a{
@@ -310,3 +264,131 @@ left: -12px;
 
 }
 
+
+
+:root {
+     --toggle-light: hsl(230, 22%, 74%);
+
+     --toggle-dark: linear gradient hsl(210, 78%, 56%) to hsl(146, 68%, 55%);
+
+ }
+
+
+.text{
+      display:inline-block;
+      font-weight:600;
+      position:absolute;
+      margin-left:-155px;
+      margin-top:12.5px;
+  }
+ 
+  .switch {
+
+ 
+
+      align-self:flex-end;
+      position: absolute!important;
+      margin-left:-70px;
+     margin-top:2.8px;
+      display: inline-block;
+ 
+      width: 60px;
+
+     height: 30px;
+
+  }
+
+
+
+  /* Hide default html checkbox */
+
+   .switch input {
+  
+       opacity: 0;
+  
+   }
+
+
+
+  .slider {
+ 
+      position: absolute;
+ 
+      cursor: pointer;
+ 
+      top: 0;
+ 
+      left: 0;
+ 
+      right: 0;
+ 
+      bottom: 0;
+ 
+      background-color: var(--toggle-light);
+ 
+      transition: 0.4s;
+ 
+  }
+ 
+ 
+ 
+  .slider:before {
+ 
+      position: absolute;
+ 
+      content: "";
+ 
+      height: 20px;
+  
+       width: 20px;
+  
+       left: 5px;/*32*/
+  
+       bottom: 5px;
+  
+       background-color: #fff;
+  
+     transition: 0.4s;
+  
+   }
+
+
+
+  input:checked + .slider {
+ 
+  /*   background: linear-gradient(90grad, #00c2c7, #b7e4ea);
+ 35 */    background:#00c2c7;
+  }
+ 
+ 
+ 
+  input:checked + .slider:before {
+ 
+      transform: translateX(30px);/*24*/
+ 
+  }
+ 
+  .slider,
+ 
+ .round {
+ 
+      border-radius: 34px;
+ 
+  }
+
+
+ .round::before {
+
+      border-radius: 50%;
+
+  }
+
+
+   input:checked + .round::before {
+
+       background-color: hsl(230, 17%, 14%);
+
+   }
+.dark  li a{
+    color:white!important;
+}

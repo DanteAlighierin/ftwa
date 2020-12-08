@@ -12,7 +12,7 @@
 
     </head>
 
-<body>
+<body class="light">
 
     <header>
 
@@ -28,11 +28,24 @@
             <div class="nav-toggle"><span></span></div>
 
             <ul id="menu">
-    <div class="switch">Dark mode:              
+ <!--               <div class="toggle-switch">
+    <div class="theme-switch" type="checkbox">Dark mode:              
 
-        <span class="inner-switch">OFF</span>
+        <span id="inner-switch">OFF</span>
 
-    </div>
+    </div></div>-->
+    <div class="text">Dark mode:  </div>
+<div class="toggle-switch">
+
+            <label class="switch">
+
+                <input id="theme-switch" type="checkbox">
+                <span class="slider round"></span>
+
+            </label>
+
+</div>
+
                 <li><a href="">About</a></li>
                 <li><a href="downloads.html">Downloads </a></li>
 
@@ -59,7 +72,6 @@
             </div>
 
 
-
             <div class="submit">    <p>
 
                 <button class="btn">
@@ -75,7 +87,17 @@
                 </p>
 
             </div>
+<!--<div class="text">Dark mode:  </div>
+--><div class="toggle-switch">
 
+               <label class="switch">
+
+                 <input id="theme-switch" type="checkbox">
+                   <span class="slider round"></span>
+
+               </label>
+
+ </div>
 
 <script src="/u/jquery.min.js"></script>
 <script src="/u/switcher.js"></script>

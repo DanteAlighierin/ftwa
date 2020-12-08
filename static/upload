@@ -19,8 +19,10 @@
 
 <ul id="menu">
 
-<div class="switch">Dark mode:     
-<span class="inner-switch">OFF</span>
+<div class="text">Dark mode:     </div>
+<div class="toggle-switch"><label class="switch">
+
+<input id="theme-switch" type="checkbox"><span class="slider round"></span></label>
 </div>
 
 <li><a href="">About</a></li>

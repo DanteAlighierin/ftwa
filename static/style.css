@@ -251,3 +251,7 @@ max-height: 123px;
     border-color: #b7e4ea;
 
 }
+
+svg{
+    margin-top:-7.5 !important;
+}

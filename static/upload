@@ -34,9 +34,19 @@ All done!</div>
 <div class="submit">
 <a class="btn" href="../index.html" style="color:#00c2c7">Go home</a>
 
+														 
+														 <div class="circle">
+     <input id="cSwitch" type="checkbox"></div>
+
+ </div>
+														 
+														 
+														 
  <script src="/u/jquery.min.js"></script>
 
 <script src="/u/switcher.js"></script>
+							
+		
 
 
 

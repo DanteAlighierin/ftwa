@@ -185,7 +185,7 @@ display: block;
 /*padding-left: 25px;
 */
 height: 44px;
-
+	
 line-height: 44px;
 
 font-size: 20px;
@@ -193,7 +193,9 @@ font-size: 20px;
 position: relative;
 
 transition: 0.3s linear;
+	
 
+	
 }
 
 .rounded a:before {
@@ -211,7 +213,9 @@ position: absolute;
 top: 15%;
 
 left: -12px;
+	
 
+	
 }
 
 .rounded li:before {
@@ -229,6 +233,8 @@ position: absolute;
 top: 30%;
 
 left: -12px;
+	
+	
 
 }
 
@@ -236,7 +242,8 @@ left: -12px;
 
 
 .home{
-    font-size:17px;
+    font-size:19px;
+	margin-left:0.5em;
     color: #00c2c7;
     height:35px;
     display:inline-block;
@@ -395,4 +402,52 @@ left: -12px;
 
 .dark .home{
     color:#00c2c7;
+}
+
+
+
+
+@media(min-width:481px){
+	.circle, #cSwitch{
+		display:none;
+		opacity:0;}}
+
+@media (max-width:480px){
+	.text{
+		opacity:0;}
+.toggle-switch{
+	display:none;
+	opacity:0;
+	}
+	
+
+
+	
+#cSwitch{
+	margin: 0 auto;
+	height:3.8em;
+	width:3.8em;
+	opacity:0;
+	}
+	
+		
+
+	.logo{
+		z-index:6;!important;}
+
+
+.circle{
+		background: #00c2c7;
+  border-radius: 50%;
+  color: #fff;
+  height: 4em;
+  position: fixed;
+  width: 4em;
+	align-items:center;
+	bottom:1em;
+	right:1em;
+	
+}
+
+
 }

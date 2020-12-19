@@ -40,6 +40,6 @@ file transfer web application
 
     - [x] file preview(now only in upload interface)
 
-    - [ ] dark theme 
+    - [x] dark theme 
 
     - [x] adaptive design

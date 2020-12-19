@@ -2,6 +2,8 @@ package main
 
 import (
 	"fmt"
+    "os/signal"
+    "syscall"
     "os"
     "os/exec"
     "net"
@@ -9,7 +11,29 @@ import (
     "errors"
 	"io/ioutil"
 	"net/http"
+    "log"
 )
+
+func KeyHandler() {
+
+	c := make(chan os.Signal)
+
+	signal.Notify(c, os.Interrupt, syscall.SIGTERM)
+
+	go func() {
+
+		<-c
+
+		fmt.Println("\r- Ctrl+C pressed in Terminal")
+        
+		os.Exit(0)
+
+	}()
+
+}
+
+
+
 
 // get port name
 func getPort() string{
@@ -112,7 +136,7 @@ func main() {
 	fmt.Println("Welcome to ftwa - file transfer web application.")
 	fmt.Println("The app is running at https://localhost:8080")
     //fmt.Println(ip.externalIP())
-
+    KeyHandler()
 //then this piece of code will run the module, and not the shit that I wrote below
 
 

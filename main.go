@@ -11,28 +11,45 @@ import (
     "errors"
 	"io/ioutil"
 	"net/http"
-    "log"
 )
 
+
+
 func KeyHandler() {
+    
+    c := make(chan os.Signal)
 
-	c := make(chan os.Signal)
+    signal.Notify(c, os.Interrupt, syscall.SIGTERM)
 
-	signal.Notify(c, os.Interrupt, syscall.SIGTERM)
+    go func() {
 
-	go func() {
-
-		<-c
-
-		fmt.Println("\r- Ctrl+C pressed in Terminal")
+        <-c
         
-		os.Exit(0)
+        fmt.Println("\r- Ctrl+C pressed in Terminal")
+        os.Exit(0)
 
-	}()
+    }()
 
 }
 
 
+
+
+func GoRoutineChannel() chan int{
+    ch := make(chan int)
+
+    go func() {
+        n := 1
+        for {
+            select {
+            case ch <- n:
+                n++
+            case <-ch:
+                return}
+            }
+        }()
+    return ch
+}
 
 
 // get port name
@@ -136,7 +153,7 @@ func main() {
 	fmt.Println("Welcome to ftwa - file transfer web application.")
 	fmt.Println("The app is running at https://localhost:8080")
     //fmt.Println(ip.externalIP())
-    KeyHandler()
+  //  KeyHandler()
 //then this piece of code will run the module, and not the shit that I wrote below
 
 
@@ -167,16 +184,17 @@ func main() {
     }
     fmt.Println("Public address: https://" + ipex + ":8080")
     fmt.Println(string(testOut))
-    
+    number := GoRoutineChannel()
+    //fmt.Println(<-number)
+    //fmt.Println(<-number)
+    close(number)
+    logs()
 
 // set served directory
-
 	http.Handle("/", http.StripPrefix("/", http.FileServer(http.Dir("static"))))
 	setupRoutes()
 
 }
-
-
 //local usage; yes, this is a shitty approach, i know
 func internalIP() (string, error) {
 	ifaces, err := net.Interfaces()

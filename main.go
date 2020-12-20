@@ -187,7 +187,7 @@ func main() {
     //fmt.Println(<-number)
     //fmt.Println(<-number)
     close(number)
-    logs()
+ //   logs()
 
 // set served directory
 	http.Handle("/", http.StripPrefix("/", http.FileServer(http.Dir("static"))))

@@ -142,8 +142,9 @@ func uploadFile(w http.ResponseWriter, req *http.Request) {
 
 // upload routing
 func setupRoutes() {
-	http.HandleFunc("/upload", uploadFile)	
+	http.HandleFunc("/upload", uploadFile)
 	http.ListenAndServe(getPort(), nil)
+    //forcing use of TLS(https protocol)
     //http.ListenAndServeTLS(getPort(), "server.crt", "server.key", nil)
 }
 
@@ -187,7 +188,6 @@ func main() {
     //fmt.Println(<-number)
     //fmt.Println(<-number)
     close(number)
- //   logs()
 
 // set served directory
 	http.Handle("/", http.StripPrefix("/", http.FileServer(http.Dir("static"))))

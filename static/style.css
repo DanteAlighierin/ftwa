@@ -1,0 +1,257 @@
+*, *:after, *:before {
+box-sizing: border-box;
+padding: 0;
+margin: 0;
+transition: .5s ease-in-out; /* добавим плавность переходов для всех элементов страницы*/
+}
+
+ul {
+list-style: none;
+}
+
+a {
+text-decoration: none;
+outline: none;
+}
+
+body{
+font-size: 14px;
+line-height: 1;
+color: #373737;
+background: #f7f7f7;
+transition: background-color .3s;
+}
+
+
+
+
+
+/* добавим очистку потока для всех контейнеров, внутри которых задано обтекание дочерних элементов */
+
+header:after, .container:after, footer:after, .widget-posts-list li:after, #subscribe:after {
+content: "";
+display: table;
+clear: both;
+} 
+
+/* стилевой класс, который управляет шириной контейнера сетки*/
+
+
+.upload-btn-wrapper{
+
+}
+
+header {
+width: 100%;
+background: white;
+box-shadow: 3px 3px 1px rgba(0,0,0,.05);
+padding: 15px 0;
+margin-bottom: 30px;
+position: relative;
+}
+
+/* логотип */
+
+.logo {
+display: block; 
+float: left;
+margin-left:1em;
+}
+
+.logo span {
+color: white;
+display: inline-block;
+width: 30px;
+height: 30px;
+line-height: 30px;
+border-radius: 50%;
+margin: 5px 0;
+text-align: center;
+text-shadow: 2px 2px 1px rgba(0,0,0,.4);
+}
+
+.logo span:nth-child(odd) {
+background: #00c2c7;
+}
+
+.logo span:nth-child(even) {
+background: #b7e4ea;
+}
+
+/* меню */
+
+#menu {
+float: right;
+}
+
+#menu li {
+display: inline-block;
+text-transform: uppercase;
+font-weight:600;
+letter-spacing:1em;
+margin-right: 0.5em;
+}
+
+.submit {
+    position:relative;
+    overflow:hidden;
+    display:flex;
+    margin-top:1em;
+    align-items:center;
+    justify-content:center;
+}
+
+
+.upload-btn-wrapper  {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  margin-top:10%;
+  align-items:center;
+  justify-content:center;
+}
+
+.btn {
+  border: 2px solid gray;
+  color: gray;
+  background-color: white;
+  padding: 8px 20px;
+  border-radius: 8px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+
+
+.upload-btn-wrapper input[type=file] {
+  font-size: 100px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0;
+}
+
+
+
+
+
+
+
+#menu a {
+color: #111;
+text-transform: uppercase;
+letter-spacing: 1px;
+font-weight: 600;
+display: block;
+line-height: 40px;
+}
+
+#menu a:hover {
+color: #00c2c7;
+}
+
+#menu li:last-child  {
+margin-right: 1em;
+}
+
+.nav-toggle {
+display: none;
+position: relative;
+float: right;
+width: 40px;
+height: 40px;
+margin-left: 20px;
+background: #EF5A42;
+cursor: pointer;
+}
+
+.nav-toggle span {
+display: block;
+position: absolute;
+top: 19px;
+left: 8px;
+right: 8px;
+height: 2px;
+background: white;
+}
+
+.nav-toggle span:before, .nav-toggle span:after {
+content: "";
+position: absolute;
+display: block;
+left: 0;
+width: 100%;
+height: 2px;
+background: white;
+}
+
+.nav-toggle span:before {
+top: -10px;
+}
+
+.nav-toggle span:after {
+bottom: -10px;
+}
+
+/* класс, который будет добавлен в верхнему меню при нажатии на кнопку и покажет скрытое меню*/
+
+#menu.active {
+max-height: 123px;
+}
+
+
+
+
+
+
+.switch {
+    
+    font-weight:600;
+
+    display:inline-block;
+
+    align-self: flex-end;
+
+    margin: 0.9375rem;
+
+}
+
+.inner-switch {
+
+    display: inline-block;
+
+    cursor: pointer;
+    
+    font-weight:600;
+
+    border: 2px solid #555;
+
+    border-radius: 1.25rem;
+
+    width: 3.125rem;
+
+    text-align: center;
+
+    font-size: 1rem;
+
+    padding: 0.1875rem;
+
+    margin-left: 0.3125rem;
+
+}
+
+
+.dark,
+.dark * {
+
+    background-color: #222;
+
+    color: #e6e6e6;
+
+    border-color: #b7e4ea;
+
+}
+
+svg{
+    margin-top:-7.5 !important;
+}

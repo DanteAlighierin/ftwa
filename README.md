@@ -1,5 +1,18 @@
 # ftwa
 
+
+![](https://heroku-badge.herokuapp.com/?app=ftwa)
+![](https://img.shields.io/github/languages/count/DanteAlighierin/ftwa)
+![](https://img.shields.io/github/languages/top/DanteAlighierin/ftwa)
+![](https://img.shields.io/github/repo-size/DanteAlighierin/ftwa)
+![](https://img.shields.io/github/issues-pr/DanteAlighierin/ftwa)
+![](https://img.shields.io/github/issues-pr-closed/DanteAlighierin/ftwa)
+![](https://img.shields.io/github/last-commit/DanteAlighierin/ftwa)
+![](https://img.shields.io/github/contributors/DanteAlighierin/ftwa)
+![](https://img.shields.io/github/license/DanteAlighierin/ftwa)
+
+
+
 file transfer web application
 
 ## Public Instances
@@ -23,10 +36,10 @@ file transfer web application
 
   - [x] privacy and confidentiality
 
-  - [ ] convenient and nice looking interface
+  - [x] convenient and nice looking interface
 
-    - [ ] file preview
+    - [x] file preview(now only in upload interface)
 
-    - [ ] dark theme 
+    - [x] dark theme 
 
-    - [ ] adaptive design
+    - [x] adaptive design

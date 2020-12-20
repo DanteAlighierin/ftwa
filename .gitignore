@@ -1,1 +1,30 @@
+#served files
+
 temp-images/
+
+#don't commit auto generated file
+downloads.html
+
+# Binaries for programs and plugins
+
+*.exe
+
+*.exe~
+
+*.dll
+
+*.so
+
+*.dylib
+
+
+
+# Test binary, built with `go test -c`
+
+*.test
+
+
+
+# Dependency directories (remove the comment below to include it)
+
+# vendor/

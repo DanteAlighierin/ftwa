@@ -1,29 +1,115 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 
-<html lang="en">
-	  <head>
-          
-		  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>    
-		  <meta content="text/html; charset=utf-8">
-		  <meta= http-equiv="X-UA_Compatible" content="ie-edge"?>
-		          <title>ftwa</title>
-                  <script src="script.js"></script>
-      </head>
-        <body>
-<a href="../index.html">Go Back</a>
-            <form
-		    action="../upload"
-		    enctype="multipart/form-data"
-		    method="post">
+<html>
 
-		      <p><input type="file" id="myFile" name="myFile" size="30" onchange="doTest()"></p>
-		      <input type="submit" value="upload file...."/></form>  
-		            <img id="uploadPreview" src="" width="100" style="display:none" />
-			     
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initital-scale=1">
+
+        <title>FTWA</title>
+
+        <link rel="stylesheet" type="text/css" href="/u/style.css">
+
+    </head>
+
+<body class="light">
+
+    <header>
+
+        <nav class="container">
+            <a class="logo" href="../">
+                <span>F</span>
+                <span>T</span>
+                <span>W</span>
+                <span>A</span>
+
+            </a>
+
+            <div class="nav-toggle"><span></span></div>
+
+            <ul id="menu">
+ <!--               <div class="toggle-switch">
+    <div class="theme-switch" type="checkbox">Dark mode:              
+
+        <span id="inner-switch">OFF</span>
+
+    </div></div>-->
+    <div class="text"> 
+
+
+Dark Mode:
 
 
 
+    </div><!--Dark Mode: -->
+<div class="toggle-switch">
+
+            <label class="switch">
+
+                <input id="theme-switch" type="checkbox">
+                <span class="slider round"></span>
+
+            </label>
+        </div>
+
+                <li><a href="">About</a></li>
+                <li><a href="downloads.html">Downloads </a></li>
 
 
-        </body>
-</html>
+
+            </ul></nav></header>
+
+
+
+            <div class="upload-btn-wrapper">
+
+                <button class="btn">
+
+                    <a href="/u" style="color:#00c2c7">
+
+                        Upload file(s)
+
+                    </a>
+
+                </button>
+
+
+
+            </div>
+
+
+            <div class="submit">    <p>
+
+                <button class="btn">
+
+                    <a href="downloads.html" style="color:#00c2c7">
+ 
+                        Download file(s)
+
+                    </a>
+
+                </button>
+
+                </p>
+
+            </div>
+<!--<div class="text">Dark mode:  </div>
+--><div class="toggle-switch">
+
+               <label class="switch">
+
+                 <input id="theme-switch" type="checkbox">
+                 </input>       <span class="slider round"></span>
+
+               </label>
+
+ </div>
+ <div class="circle">
+     <input id="cSwitch" type="checkbox"></div>
+
+ </div>
+
+<script src="/u/jquery.min.js"></script>
+<script src="/u/switcher.js"></script>
+
+
+            </html>

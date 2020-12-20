@@ -5,7 +5,7 @@ import (
     "os/signal"
     "syscall"
     "os"
-    "os/exec"
+    //"os/exec"
     "net"
     "bytes"
     "errors"
@@ -35,21 +35,21 @@ func KeyHandler() {
 
 
 
-func GoRoutineChannel() chan int{
-    ch := make(chan int)
+///func GoRoutineChannel() chan int{
+   // ch := make(chan int)
 
-    go func() {
-        n := 1
-        for {
-            select {
-            case ch <- n:
-                n++
-            case <-ch:
-                return}
-            }
-        }()
-    return ch
-}
+    //go func() {
+      //  n := 1
+        //for {
+          //  select {
+            //case ch <- n:
+              //  n++
+     //       case <-ch:
+       //         return}
+         //   }
+   //     }()
+   // return ch
+//}
 
 
 // get port name
@@ -63,19 +63,19 @@ func getPort() string{
 
 
 
-func generator() {
-    genTree := exec.Command("downloads.sh")
+//func generator() {
+  //  genTree := exec.Command("downloads.sh")
     
-    genOut, err := genTree.Output()
+    //genOut, err := genTree.Output()
 
-    if err != nil {
+   // if err != nil {
 
-        panic(err)
+     //   panic(err)
 
-    }
+   // }
 
-    fmt.Println(string(genOut))
-}
+   // fmt.Println(string(genOut))
+//}
 
 
 //main func of program.
@@ -123,7 +123,7 @@ func uploadFile(w http.ResponseWriter, req *http.Request) {
 	//fmt.Fprintf(w, "Successfully Uploaded File\n")
     http.ServeFile(w, req, "./static/upload")
 
-    generator()
+   // generator()
 //5. gen downloads page via tree util
     
     //genTree := exec.Command("downloads.sh")
@@ -157,15 +157,15 @@ func main() {
 //then this piece of code will run the module, and not the shit that I wrote below
 
 
-    testCmd := exec.Command("qr.sh")        
+ //   testCmd := exec.Command("qr.sh")        
 
-    testOut, err := testCmd.Output()
+   // testOut, err := testCmd.Output()
 
-    if err != nil {
+    //if err != nil {
 
-        panic(err)
-    }
-    generator()
+      //  panic(err)
+    //}
+    //generator()
     //fmt.Println(string(testOut))
 
 
@@ -183,11 +183,11 @@ func main() {
         fmt.Println(err)
     }
     fmt.Println("Public address: https://" + ipex + ":8080")
-    fmt.Println(string(testOut))
-    number := GoRoutineChannel()
+    //fmt.Println(string(testOut))
+  //  number := GoRoutineChannel()
     //fmt.Println(<-number)
     //fmt.Println(<-number)
-    close(number)
+    //close(number)
 
 // set served directory
 	http.Handle("/", http.StripPrefix("/", http.FileServer(http.Dir("static"))))

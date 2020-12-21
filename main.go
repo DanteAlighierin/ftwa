@@ -21,17 +21,18 @@ func KeyHandler() {
 
     signal.Notify(c, os.Interrupt, syscall.SIGTERM)
 
-    go func() {
+     func() {
 
         <-c
         
         fmt.Println("\r- Ctrl+C pressed in Terminal")
         os.Exit(0)
+        number := GoRoutineChannel()
+        close(number)
 
     }()
 
 }
-
 
 
 
@@ -184,10 +185,11 @@ func main() {
     }
     fmt.Println("Public address: https://" + ipex + ":8080")
     fmt.Println(string(testOut))
-    number := GoRoutineChannel()
+    //number := GoRoutineChannel()
     //fmt.Println(<-number)
     //fmt.Println(<-number)
-    close(number)
+    //close(number)
+    go KeyHandler()
     
 
 // set served directory

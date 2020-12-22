@@ -15,6 +15,8 @@ import (
 
 
 
+
+
 func KeyHandler() {
     
     c := make(chan os.Signal)
@@ -35,8 +37,8 @@ func KeyHandler() {
 }
 
 
-
 func GoRoutineChannel() chan int{
+
     ch := make(chan int)
 
     go func() {
@@ -146,13 +148,13 @@ func setupRoutes() {
 	http.HandleFunc("/upload", uploadFile)
 	//http.ListenAndServe(getPort(), nil)
     //forcing use of TLS(https protocol)
-    http.ListenAndServeTLS(getPort(), "server.crt", "server.key", nil)
-}
+      http.ListenAndServeTLS(getPort(), "server.crt", "server.key", nil)
+  }
 
 //greetings
 func main() {
 	fmt.Println("Welcome to ftwa - file transfer web application.")
-	fmt.Println("The app is running at https://localhost:8080")
+	fmt.Println("The app is running at https://localhost:" + getPort())
     //fmt.Println(ip.externalIP())
   //  KeyHandler()
 //then this piece of code will run the module, and not the shit that I wrote below
@@ -183,7 +185,7 @@ func main() {
     if err != nil {
         fmt.Println(err)
     }
-    fmt.Println("Public address: https://" + ipex + ":8080")
+    fmt.Println("Public address: https://" + ipex + getPort())
     fmt.Println(string(testOut))
     //number := GoRoutineChannel()
     //fmt.Println(<-number)
@@ -229,11 +231,14 @@ func internalIP() (string, error) {
 			if ip == nil {
 				continue // not an ipv4 address
 			}
-            return "Address in your local network: https://" + ip.String() + ":8080", nil
+            return "Address in your local network: https://" + ip.String() + getPort(), nil
 		}
 	}
 	return "", errors.New("are you connected to the network?")
+
 }
+
+
 
 //get external ip via OVERBLOATED FUCKING WEBSITE. Bad practice
 func ExternalIP() (string, error) {

@@ -17,6 +17,8 @@ import (
 
 
 
+
+
 func KeyHandler() {
     
     c := make(chan os.Signal)
@@ -140,6 +142,11 @@ func uploadFile(w http.ResponseWriter, req *http.Request) {
 }
 
 
+//func redir(w http.ResponseWriter, req *http.Request) {
+  //  http.Redirect(w, req, "https://localhost:443"+req.RequestURI, http.StatusMovedPermanently)
+
+//}
+
 
 
 
@@ -148,13 +155,16 @@ func setupRoutes() {
 	http.HandleFunc("/upload", uploadFile)
 	//http.ListenAndServe(getPort(), nil)
     //forcing use of TLS(https protocol)
-      http.ListenAndServeTLS(getPort(), "server.crt", "server.key", nil)
-  }
+    go http.ListenAndServeTLS(":8081", "server.crt", "server.key", nil)
+    //http.ListenAndServe(":8080", http.HandlerFunc(redir))
+    http.ListenAndServe(getPort(),nil)
+}
+
 
 //greetings
 func main() {
 	fmt.Println("Welcome to ftwa - file transfer web application.")
-	fmt.Println("The app is running at https://localhost:" + getPort())
+    fmt.Println("The app is running at https://localhost" + getPort() + "\nAlso aviable via TLS: https://localhost:8081")
     //fmt.Println(ip.externalIP())
   //  KeyHandler()
 //then this piece of code will run the module, and not the shit that I wrote below
@@ -231,7 +241,7 @@ func internalIP() (string, error) {
 			if ip == nil {
 				continue // not an ipv4 address
 			}
-            return "Address in your local network: https://" + ip.String() + getPort(), nil
+            return "Address in your local network: http://" + ip.String() + getPort() + "\nAlso aviable via TLS: https://" +ip.String() + ":8081" ,nil
 		}
 	}
 	return "", errors.New("are you connected to the network?")

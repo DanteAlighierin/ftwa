@@ -427,3 +427,7 @@ input:checked + .round::before {
 
 }
 
+img{
+    scale:0.7;
+}
+

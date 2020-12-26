@@ -255,3 +255,9 @@ max-height: 123px;
 svg{
     margin-top:-7.5 !important;
 }
+
+
+
+img{
+    scale:0.7;
+}

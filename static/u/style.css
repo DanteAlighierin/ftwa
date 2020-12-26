@@ -397,23 +397,31 @@ input:checked + .round::before {
 	
 
 
-	
-#cSwitch{
-	margin: 0 auto;
-	height:3.8em;
-	width:3.8em;
-	opacity:0;
-	}
-	
-		
 
+#cSwitch{
+    position:relative;
+
+    bottom:4em;
+
+	margin: 0 auto;
+
+	height:3.8em;
+
+	width:3.8em;
+
+	opacity:0;
+
+	}
+
+
+	
 	.logo{
 		z-index:6;!important;}
 
 
 .circle{
 		background: #00c2c7;
-  border-radius: 50%;
+  border-radius: 50%!important;
   color: #fff;
   height: 4em;
   position: fixed;

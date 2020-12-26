@@ -127,7 +127,7 @@ function checkTheme() {
 
         // adjust the slider position
 
-        const themeSwitch = document.getElementById("g");
+        const themeSwitch = document.getElementById("cSwitch");
 
         themeSwitch.checked = true;
 

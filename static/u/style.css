@@ -429,5 +429,6 @@ input:checked + .round::before {
 
 img{
     scale:0.7;
+    background-color:#00c2c7!important;
 }
 

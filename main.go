@@ -155,7 +155,7 @@ func setupRoutes() {
 	http.HandleFunc("/upload", uploadFile)
 	//http.ListenAndServe(getPort(), nil)
     //forcing use of TLS(https protocol)
-    go http.ListenAndServeTLS(":8081", "server.crt", "server.key", nil)
+    //go http.ListenAndServeTLS(":8081", "server.crt", "server.key", nil)
     //http.ListenAndServe(":8080", http.HandlerFunc(redir))
     http.ListenAndServe(getPort(),nil)
 }

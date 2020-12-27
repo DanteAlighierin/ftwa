@@ -424,19 +424,22 @@ input:checked + .round::before {
   border-radius: 50%!important;
   color: #fff;
   height: 4em;
-  position: fixed;
+  position:fixed;
   width: 4em;
 	align-items:center;
 	bottom:1em;
 	right:1em;
-	
+    display:inline-block;
+    overflow:hidden;
+
 }
 
 
 }
 
 img{
-    scale:0.7;
+    transform:scale(0.7)!important;
+
     background-color:#00c2c7!important;
 }
 

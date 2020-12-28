@@ -5,6 +5,7 @@ import (
 	"errors"
 	"fmt"
 	"io/ioutil"
+	"log"
 	"net"
 	"net/http"
 	"os"
@@ -126,18 +127,49 @@ func uploadFile(w http.ResponseWriter, req *http.Request) {
 }
 
 func redir(w http.ResponseWriter, req *http.Request) {
-	http.Redirect(w, req, "https://localhost:443"+req.RequestURI, http.StatusMovedPermanently)
+
+	http.Redirect(w, req, "https://"+req.Host+req.RequestURI, http.StatusMovedPermanently)
 
 }
+
+var httpAddr string = ":8080"
+var httpsAddr string = ":8443"
 
 // upload routing
 func setupRoutes() {
 	http.HandleFunc("/upload", uploadFile)
 	//http.ListenAndServe(getPort(), nil)
 	//forcing use of TLS(https protocol)
-	go http.ListenAndServeTLS(":8081", "server.crt", "server.key", nil)
-	http.ListenAndServe(":8080", http.HandlerFunc(redir))
-	//http.ListenAndServe(getPort(),nil)
+	//http.ListenAndServeTLS(":8081", "server.crt", "server.key", nil)
+	//http.ListenAndServe(":8080", http.HandlerFunc(redir))
+
+	srv := http.Server{
+		Addr: httpsAddr,
+	}
+	_, tlsPort, err := net.SplitHostPort(httpsAddr)
+
+	if err != nil {
+		return
+	}
+
+	go redirectToHTTPS(tlsPort)
+	srv.ListenAndServeTLS("server.crt", "server.key")
+
+	//go http.ListenAndServe(":8080", http.HandlerFunc(redir))
+}
+
+func redirectToHTTPS(tlsPort string) {
+	httpSrv := http.Server{
+		Addr: httpAddr,
+		Handler: http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+			host, _, _ := net.SplitHostPort(r.Host)
+			u := r.URL
+			u.Host = net.JoinHostPort(host, tlsPort)
+			u.Scheme = "https"
+			http.Redirect(w, r, u.String(), http.StatusMovedPermanently)
+		}),
+	}
+	log.Println(httpSrv.ListenAndServe())
 }
 
 //greetings

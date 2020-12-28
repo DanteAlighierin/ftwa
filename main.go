@@ -57,7 +57,7 @@ func getPort() string {
 	if p != "" {
 		return ":" + p
 	} //exception
-	return ":8080"
+	return httpsAddr
 }
 
 func generator() {
@@ -169,7 +169,7 @@ func redirectToHTTPS(tlsPort string) {
 //greetings
 func main() {
 	fmt.Println("Welcome to ftwa - file transfer web application.")
-	fmt.Println("The app is running at https://localhost" + getPort() + "\nAlso aviable via TLS: https://localhost:8081")
+	fmt.Println("The app is running at https://localhost" + getPort())
 	//fmt.Println(ip.externalIP())
 	//KeyHandler()
 	//then this piece of code will run the module, and not the shit that I wrote below
@@ -243,7 +243,7 @@ func internalIP() (string, error) {
 			if ip == nil {
 				continue // not an ipv4 address
 			}
-			return "Address in your local network: http://" + ip.String() + getPort() + "\nAlso aviable via TLS: https://" + ip.String() + ":8081", nil
+			return "Address in your local network: http://" + ip.String() + getPort(), nil
 		}
 	}
 	return "", errors.New("are you connected to the network?")

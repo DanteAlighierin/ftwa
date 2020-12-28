@@ -126,12 +126,6 @@ func uploadFile(w http.ResponseWriter, req *http.Request) {
 	//fmt.Println(string(genOut))
 }
 
-func redir(w http.ResponseWriter, req *http.Request) {
-
-	http.Redirect(w, req, "https://"+req.Host+req.RequestURI, http.StatusMovedPermanently)
-
-}
-
 var httpAddr string = ":8080"
 var httpsAddr string = ":8443"
 

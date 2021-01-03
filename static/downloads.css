@@ -428,6 +428,8 @@ left: -12px;
 	height:3.8em;
 	width:3.8em;
 	opacity:0;
+	position:absolute;
+	right:1%;
 	}
 	
 		
@@ -451,3 +453,11 @@ left: -12px;
 
 
 }
+
+
+img{
+	transform:scale(0.7)!important;
+	background-color:#00c2c7!important;
+}
+
+

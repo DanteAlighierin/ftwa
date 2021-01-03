@@ -11,7 +11,7 @@ sed -i '/<a href="temp-images">temp-images</d' downloads.html
 
 sed -i '8i<meta name ="viewport" content="width=device-width, initial-scale=1">' downloads.html
 
-sed -i 's_<p class="VERSION">_<div class="circle"><input id="cSwitch" type="checkbox"></div></div><script src="/u/jquery.min.js"></script><script src="/u/switcher.js"></script>_' downloads.html
+sed -i 's_<p class="VERSION">_<div class="circle"><img src="./eclipse.svg"><input id="cSwitch" type="checkbox"></div></div><script src="/u/jquery.min.js"></script><script src="/u/switcher.js"></script>_' downloads.html
 
 sed -i '32i<ol class="rounded">' downloads.html
 

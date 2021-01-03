@@ -399,11 +399,10 @@ input:checked + .round::before {
 
 
 #cSwitch{
-    position:relative;
+    position:absolute;
 
-    bottom:4em;
-
-	margin: 0 auto;
+bottom:1%;
+right:1%;
 
 	height:3.8em;
 
@@ -431,15 +430,15 @@ input:checked + .round::before {
 	right:1em;
     display:inline-block;
     overflow:hidden;
-
+background-image:url(./eclipse.svg) inherit;
 }
 
 
-}
 
 img{
     transform:scale(0.7)!important;
 
+	display:inline-block;
     background-color:#00c2c7!important;
 }
 

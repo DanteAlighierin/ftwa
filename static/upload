@@ -35,8 +35,9 @@ All done!</div>
 <a class="btn" href="../index.html" style="color:#00c2c7">Go home</a>
 
 														 
-														 <div class="circle">
-     <input id="cSwitch" type="checkbox"></div>
+														 
+<div class="circle"><img src="./eclipse.svg">    
+<input id="cSwitch" type="checkbox"></div>
 
  </div>
 														 
@@ -50,4 +51,4 @@ All done!</div>
 
 
 
-
+</html>

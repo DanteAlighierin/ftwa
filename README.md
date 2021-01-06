@@ -15,12 +15,27 @@
 
 file transfer web application
 
+
+### Desktop
+
+![](screens/light_d.png)
+![](screens/dark_d.png)
+
+### Mobile
+
+<img src="screens/light_m.png" height="540px" width="270px"><img src="screens/dark_m.png" height="540px" width="270px">
+
+
+
+
+
+
 ## Public Instances
 
 
-[Main](https://ftwa.herokuapp.com)
+[Main](https://ftwa.herokuapp.com) - demo showing applied UI/UX solutions
 
-[Testing](https://secure-lake-20134.herokuapp.com)
+[Testing](https://secure-lake-20134.herokuapp.com) - technodemo to show how the application works
 
 
 ## Core features
@@ -43,3 +58,68 @@ file transfer web application
     - [x] dark theme 
 
     - [x] adaptive design
+
+
+
+## Getting the source code
+
+### via git clone
+
+```bash
+
+git clone https://github.com/DanteAlighierin/ftwa.git
+cd ftwa
+
+```
+
+
+### via go get
+
+```bash
+
+go get github.com/DanteAlighierin/ftwa
+cd go/src/github.com/DanteAlighierin/ftwa
+
+```
+
+
+## Installation
+
+Satisfy dependencies and generate certificates manually:
+
+```bash
+
+##generate certificates
+sudo chmod +x cert.sh
+./cert.sh
+
+```
+or use the script:
+
+```bash
+sudo chmod +x installer.sh
+./installer.sh
+
+```
+
+
+Run app interactively:
+
+```bash
+
+go run main.go
+
+```
+
+or build and install the binary:
+
+```bash
+go build
+go install
+```
+
+## Issues & bugs
+
+- unreadable filenames of uploaded files
+
+- loss of cerificates

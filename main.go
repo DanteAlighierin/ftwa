@@ -2,90 +2,80 @@ package main
 
 import (
 	"fmt"
-    "os/signal"
-    "syscall"
-    "os"
-    //"os/exec"
-    "net"
-    "bytes"
-    "errors"
+	"os"
+	"os/signal"
+	"syscall"
+
+	//"os/exec"
+	"bytes"
+	"errors"
 	"io/ioutil"
+	"net"
 	"net/http"
+
+	"github.com/ccding/go-stun/stun"
 )
 
-
-
 func KeyHandler() {
-    
-    c := make(chan os.Signal)
 
-    signal.Notify(c, os.Interrupt, syscall.SIGTERM)
+	c := make(chan os.Signal)
 
-    go func() {
+	signal.Notify(c, os.Interrupt, syscall.SIGTERM)
 
-        <-c
-        
-        fmt.Println("\r- Ctrl+C pressed in Terminal")
-        os.Exit(0)
+	go func() {
 
-    }()
+		<-c
+
+		fmt.Println("\r- Ctrl+C pressed in Terminal")
+		os.Exit(0)
+
+	}()
 
 }
-
-
-
 
 ///func GoRoutineChannel() chan int{
-   // ch := make(chan int)
+// ch := make(chan int)
 
-    //go func() {
-      //  n := 1
-        //for {
-          //  select {
-            //case ch <- n:
-              //  n++
-     //       case <-ch:
-       //         return}
-         //   }
-   //     }()
-   // return ch
+//go func() {
+//  n := 1
+//for {
+//  select {
+//case ch <- n:
+//  n++
+//       case <-ch:
+//         return}
+//   }
+//     }()
+// return ch
 //}
-
 
 // get port name
-func getPort() string{
-    p := os.Getenv("PORT")
-    if p != ""{
-        return ":" + p
-    }//exception
-    return ":8080"
+func getPort() string {
+	p := os.Getenv("PORT")
+	if p != "" {
+		return ":" + p
+	} //exception
+	return ":8080"
 }
 
-
-
 //func generator() {
-  //  genTree := exec.Command("downloads.sh")
-    
-    //genOut, err := genTree.Output()
+//  genTree := exec.Command("downloads.sh")
 
-   // if err != nil {
+//genOut, err := genTree.Output()
 
-     //   panic(err)
+// if err != nil {
 
-   // }
+//   panic(err)
 
-   // fmt.Println(string(genOut))
+// }
+
+// fmt.Println(string(genOut))
 //}
-
 
 //main func of program.
 
 func uploadFile(w http.ResponseWriter, req *http.Request) {
 	//fmt.Fprintf(w, "Uploading File\n")
-    
-    
-
-
 
 	///1. parse input, , type multipart/form-data
 	req.ParseMultipartForm(10 << 20)
@@ -100,10 +90,8 @@ func uploadFile(w http.ResponseWriter, req *http.Request) {
 	defer file.Close() //print file's data
 	fmt.Printf("Uploaded file: %+v\n", handler.Filename)
 	fmt.Printf("File Size: %+v", handler.Size)
-    fmt.Printf(" KB\n")
-    fmt.Printf("MIME type: %+v\n", handler.Header)
-
-
+	fmt.Printf(" KB\n")
+	fmt.Printf("MIME type: %+v\n", handler.Header)
 
 	//3. write temp file to server
 	tempFile, err := ioutil.TempFile("./static/temp-images", "upload-*")
@@ -121,79 +109,73 @@ func uploadFile(w http.ResponseWriter, req *http.Request) {
 
 	//4. return whether or not  this has ben succesful
 	//fmt.Fprintf(w, "Successfully Uploaded File\n")
-    http.ServeFile(w, req, "./static/upload")
+	http.ServeFile(w, req, "./static/upload")
 
-   // generator()
-//5. gen downloads page via tree util
-    
-    //genTree := exec.Command("downloads.sh")
+	// generator()
+	//5. gen downloads page via tree util
 
-    //genOut, err := genTree.Output()
+	//genTree := exec.Command("downloads.sh")
 
-    //if err != nil {
-      //  panic(err)
-    //}
-    //fmt.Println(string(genOut))
+	//genOut, err := genTree.Output()
+
+	//if err != nil {
+	//  panic(err)
+	//}
+	//fmt.Println(string(genOut))
 }
-
-
-
-
 
 // upload routing
 func setupRoutes() {
 	http.HandleFunc("/upload", uploadFile)
 	http.ListenAndServe(getPort(), nil)
-    //forcing use of TLS(https protocol)
-    //http.ListenAndServeTLS(getPort(), "server.crt", "server.key", nil)
+	//forcing use of TLS(https protocol)
+	//http.ListenAndServeTLS(getPort(), "server.crt", "server.key", nil)
 }
 
 //greetings
 func main() {
 	fmt.Println("Welcome to ftwa - file transfer web application.")
 	fmt.Println("The app is running at https://localhost:8080")
-    //fmt.Println(ip.externalIP())
-  //  KeyHandler()
-//then this piece of code will run the module, and not the shit that I wrote below
+	//fmt.Println(ip.externalIP())
+	//  KeyHandler()
+	//then this piece of code will run the module, and not the shit that I wrote below
 
+	//   testCmd := exec.Command("qr.sh")
 
- //   testCmd := exec.Command("qr.sh")        
+	// testOut, err := testCmd.Output()
 
-   // testOut, err := testCmd.Output()
+	//if err != nil {
 
-    //if err != nil {
+	//  panic(err)
+	//}
+	//generator()
+	//fmt.Println(string(testOut))
 
-      //  panic(err)
-    //}
-    //generator()
-    //fmt.Println(string(testOut))
+	//print public ip via using the module
 
-
-
-//print public ip via using the module
-
-    ip, err := internalIP()
+	ip, err := internalIP()
 	if err != nil {
 		fmt.Println(err)
 	}
 	fmt.Println(ip)
 
-    ipex, err := ExternalIP()
-    if err != nil {
-        fmt.Println(err)
-    }
-    fmt.Println("Public address: https://" + ipex + ":8080")
-    //fmt.Println(string(testOut))
-  //  number := GoRoutineChannel()
-    //fmt.Println(<-number)
-    //fmt.Println(<-number)
-    //close(number)
+	ipex, err := ExternalIP()
+	if err != nil {
+		fmt.Println(err)
+	}
+	fmt.Println("Public address: https://" + ipex + ":8080")
+	//fmt.Println(string(testOut))
+	//  number := GoRoutineChannel()
+	//fmt.Println(<-number)
+	//fmt.Println(<-number)
+	//close(number)
 
-// set served directory
+	// set served directory
 	http.Handle("/", http.StripPrefix("/", http.FileServer(http.Dir("static"))))
 	setupRoutes()
 
 }
+
 //local usage; yes, this is a shitty approach, i know
 func internalIP() (string, error) {
 	ifaces, err := net.Interfaces()
@@ -226,7 +208,7 @@ func internalIP() (string, error) {
 			if ip == nil {
 				continue // not an ipv4 address
 			}
-            return "Address in your local network: https://" + ip.String() + ":8080", nil
+			return "Address in your local network: https://" + ip.String() + ":8080", nil
 		}
 	}
 	return "", errors.New("are you connected to the network?")
@@ -245,8 +227,6 @@ func ExternalIP() (string, error) {
 
 	defer rsp.Body.Close()
 
-
-
 	buf, err := ioutil.ReadAll(rsp.Body)
 
 	if err != nil {
@@ -255,8 +235,30 @@ func ExternalIP() (string, error) {
 
 	}
 
-//return data
+	//return data
 
 	return string(bytes.TrimSpace(buf)), nil
 
+}
+
+// go get "github.com/ccding/go-stun/stun"
+func NewExternalIP() (string, error) {
+	client := stun.NewClient()
+	client.SetServerAddr(stun.DefaultServerAddr)
+	client.SetVerbose(true)  //for debug
+	client.SetVVerbose(true) //for debug
+	nat, host, err := client.Discover()
+	if err != nil {
+		fmt.Println(err)
+		return "", err
+	}
+
+	fmt.Println("NAT Type:", nat)
+	if host != nil {
+		fmt.Println("External IP Family:", host.Family())
+		fmt.Println("External IP:", host.IP())
+		fmt.Println("External Port:", host.Port())
+		return host.IP(), nil
+	}
+	return "", errors.New("Some error")
 }

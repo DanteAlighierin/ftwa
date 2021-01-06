@@ -158,7 +158,10 @@ func redirectToHTTPS(tlsPort string) {
 	httpSrv := http.Server{
 		Addr: httpAddr,
 		Handler: http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-			host, _, _ := net.SplitHostPort(r.Host)
+			host, _, err := net.SplitHostPort(r.Host)
+			if err != nil {
+				log.Println(err)
+			}
 			u := r.URL
 			u.Host = net.JoinHostPort(host, tlsPort)
 			u.Scheme = "https"
@@ -282,20 +285,14 @@ func ExternalIP() (string, error) {
 // go get "github.com/ccding/go-stun/stun"
 func NewExternalIP() (string, error) {
 	client := stun.NewClient()
-	client.SetServerAddr(stun.DefaultServerAddr)
-	client.SetVerbose(true)  //for debug
-	client.SetVVerbose(true) //for debug
-	nat, host, err := client.Discover()
+	client.SetServerAddr("stun1.l.google.com:19302")
+	_, host, err := client.Discover()
 	if err != nil {
 		fmt.Println(err)
 		return "", err
 	}
 
-	fmt.Println("NAT Type:", nat)
 	if host != nil {
-		fmt.Println("External IP Family:", host.Family())
-		fmt.Println("External IP:", host.IP())
-		fmt.Println("External Port:", host.Port())
 		return host.IP(), nil
 	}
 	return "", errors.New("Some error")

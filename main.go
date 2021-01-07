@@ -12,6 +12,8 @@ import (
 	"os/exec"
 	"os/signal"
 	"syscall"
+
+	"github.com/ccding/go-stun/stun"
 )
 
 func KeyHandler() {
@@ -156,7 +158,10 @@ func redirectToHTTPS(tlsPort string) {
 	httpSrv := http.Server{
 		Addr: httpAddr,
 		Handler: http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-			host, _, _ := net.SplitHostPort(r.Host)
+			host, _, err := net.SplitHostPort(r.Host)
+			if err != nil {
+				log.Println(err)
+			}
 			u := r.URL
 			u.Host = net.JoinHostPort(host, tlsPort)
 			u.Scheme = "https"
@@ -275,4 +280,20 @@ func ExternalIP() (string, error) {
 
 	return string(bytes.TrimSpace(buf)), nil
 
+}
+
+// go get "github.com/ccding/go-stun/stun"
+func NewExternalIP() (string, error) {
+	client := stun.NewClient()
+	client.SetServerAddr("stun1.l.google.com:19302")
+	_, host, err := client.Discover()
+	if err != nil {
+		fmt.Println(err)
+		return "", err
+	}
+
+	if host != nil {
+		return host.IP(), nil
+	}
+	return "", errors.New("Some error")
 }

@@ -11,6 +11,7 @@ import (
 	"os"
 	"os/exec"
 	"os/signal"
+	//"strings"
 	"syscall"
 
 	"github.com/ccding/go-stun/stun"
@@ -285,7 +286,8 @@ func ExternalIP() (string, error) {
 // go get "github.com/ccding/go-stun/stun"
 func NewExternalIP() (string, error) {
 	client := stun.NewClient()
-	client.SetServerAddr("stun1.l.google.com:19302")
+	client.SetServerAddr("stun.sipgate.net:10000")
+	//client.SetServerAddr("stun1.l.google.com:19302")
 	_, host, err := client.Discover()
 	if err != nil {
 		fmt.Println(err)
@@ -293,7 +295,7 @@ func NewExternalIP() (string, error) {
 	}
 
 	if host != nil {
-		return host.IP(), nil
+		return string(host.IP()), nil
 	}
 	return "", errors.New("Some error")
 }

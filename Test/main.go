@@ -1,4 +1,4 @@
-package Test_test
+package test
 
 import (
 	"fmt"
@@ -7,7 +7,7 @@ import (
 	"github.com/ccding/go-stun/stun"
 )
 
-func TestStun(t *testing.T) {
+func test(t *testing.T) {
 	client := stun.NewClient()
 	client.SetServerAddr("stun1.l.google.com:19302")
 	// client.SetServerAddr(stun.DefaultServerAddr)

@@ -5,7 +5,7 @@ chmod +x qr.sh
 chmod +x cert.sh
 
 if grep void /etc/*-release #Search by keyword
-then sudo xbps-install go libressl qrencode#Installing packages using the package manager of a specific distro
+then sudo xbps-install go libressl qrencode #Installing packages using the package manager of a specific distro
 fi
 
 
@@ -20,16 +20,16 @@ fi
 
 
 if grep -q 'ubuntu\|debian\|mint' /etc/*-release #Search by keyword
-then sudo apt install golang openssl qrencode#Installing packages using the package manager of a specific distro
+then sudo apt install golang openssl qrencode #Installing packages using the package manager of a specific distro
 fi
 
 
 if grep -q 'arch\|manjaro' /etc/*-release #Search by keyword
-then sudo pacman -S go openssl qrencode#Installing packages using the package manager of a specific distro
+then sudo pacman -S go openssl qrencode #Installing packages using the package manager of a specific distro
 fi
 
 
-mkdir -p static/u static/temp-images
+#mkdir -p static/u static/temp-images
 
 
 

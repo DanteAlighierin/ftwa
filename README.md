@@ -1,6 +1,7 @@
 # ftwa
 
 
+
 ![](https://heroku-badge.herokuapp.com/?app=ftwa)
 ![](https://img.shields.io/github/languages/count/DanteAlighierin/ftwa)
 ![](https://img.shields.io/github/languages/top/DanteAlighierin/ftwa)
@@ -12,9 +13,13 @@
 ![](https://img.shields.io/github/license/DanteAlighierin/ftwa)
 
 
+**File transfer web application** is a service for fast, secure and convenient file transfer in your local network or through the global web.
 
-file transfer web application
+The speed is achieved thanks to **golang**, designed to create high-load and fast web services.
 
+Security and confidentiality has become possible thanks to the use of the secure **https** protocol with **SSL** certificates, as well as the absence of any central instance (you are independent of it, you yourself are free to raise your service wherever you want). Also, the project does not depend on companies that do not care about your freedom, such as *Google* or *Cloudflare* (the service does not use *CDN* and similar technologies, all the code and content belongs to and can only be viewed by **you**). JavaScript is used only for loading and previewing files, as well as for changing the theme.
+
+![](screens/umatrix.png)
 
 ### Desktop
 
@@ -111,15 +116,30 @@ go run main.go
 
 ```
 
-or build and install the binary:
+or build the binary:
 
 ```bash
 go build
-go install
+
 ```
 
 ## Issues & bugs
 
-- unreadable filenames of uploaded files
 
-- loss of cerificates
+If you know how to solve the following problems, then open a pull request:
+
+- Unreadable filenames of uploaded files
+
+- Loss of cerificates
+
+- So far only Linux is supported (and possibly macOS X)
+	
+	Currently, work is underway to support Windows
+
+- The binary requires a pre-configured environment
+
+	For this reason, demos exist both to show the UI and to show the functional part separately. 
+	Since heroku does not support multilingual environments by default (ftwa backend is written in golang and bash)
+
+
+If you are faced with other problems, then open an issue.

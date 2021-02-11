@@ -29,6 +29,10 @@ then sudo pacman -S go openssl qrencode#Installing packages using the package ma
 fi
 
 
+mkdir -p static/u static/temp-images
+
+
+
 ./cert.sh #generate certificates
 
 

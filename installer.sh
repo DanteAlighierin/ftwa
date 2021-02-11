@@ -2,7 +2,7 @@
 
 
 chmod +x qr.sh
-
+chmod +x cert.sh
 
 if grep void /etc/*-release #Search by keyword
 then sudo xbps-install go libressl qrencode#Installing packages using the package manager of a specific distro

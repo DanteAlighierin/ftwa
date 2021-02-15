@@ -123,6 +123,42 @@ go build
 
 ```
 
+
+
+## Testing
+
+### Split testing
+
+You can run a unit test for each module separately by going  to the appropriate directory and starting testing:
+
+#### For main.go
+
+```golang
+
+go test
+
+```
+
+#### For stun module
+
+```golang
+
+cd stun
+go test
+
+```
+
+### Simultaneous testing
+
+At the moment testing is implemented by a simple call to the built-in golang testing toolkiy. Later it is planned to implement an advanced init test system.
+
+```golang
+go test; go test -run '/stun'
+```
+
+
+
+
 ## Issues & bugs
 
 

@@ -6,9 +6,9 @@ import (
 )
 
 func main() {
-	_, err := os.Stat("test")
+	_, err := os.Stat("test" "e")
 	if os.IsNotExist(err) {
-		errDir := os.MkdirAll("test", 0755)
+		errDir := os.MkdirAll("test" "e", 0755)
 		if errDir != nil {
 			log.Fatal(err)
 		}

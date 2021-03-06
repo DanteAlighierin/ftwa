@@ -158,7 +158,7 @@ go test; go test -run '/test_func/stun'
 
 ## TODO
 
-- multi-download and multi-download files
+- multi-download and multi-upload files
 
 - download file (s) on click
 

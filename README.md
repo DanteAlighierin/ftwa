@@ -50,8 +50,6 @@ Security and confidentiality has become possible thanks to the use of the secure
 - [x] access to your files from anywhere in the world or from the local
   network
 
-  - [ ] git synchronizaation
-
   - [x] encryption
 
   - [x] privacy and confidentiality
@@ -143,7 +141,7 @@ go test
 
 ```golang
 
-cd stun
+cd test_func/stun
 go test
 
 ```
@@ -153,10 +151,22 @@ go test
 At the moment testing is implemented by a simple call to the built-in golang testing toolkiy. Later it is planned to implement an advanced init test system.
 
 ```golang
-go test; go test -run '/stun'
+go test; go test -run '/test_func/stun'
 ```
 
 
+
+## TODO
+
+- multi-download and multi-download files
+
+- download file (s) on click
+
+- prepare binary packages
+
+- rewrite some of the functions from bash to golang and move them into separate threads
+
+- refactor the css
 
 
 ## Issues & bugs

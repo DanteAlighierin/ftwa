@@ -184,8 +184,8 @@ func main() {
 	testOut, err := testCmd.Output()
 
 	if err != nil {
-		fmt.Println("Couldn't generate qr code")
 		//panic(err)
+		fmt.Println("")
 	}
 	generator()
 	//fmt.Println(string(testOut))
@@ -203,7 +203,11 @@ func main() {
 		//panic(err)
 		fmt.Println("Couldn't connect to external service to get your external IP")
 	}
-	fmt.Println("Public address: https://" + ipex + getPort())
+	if ipex == "" {
+		fmt.Println("")
+	} else {
+		fmt.Println("Public address: https://" + ipex + getPort())
+	}
 	fmt.Println(string(testOut))
 	//number := GoRoutineChannel()
 	//fmt.Println(<-number)

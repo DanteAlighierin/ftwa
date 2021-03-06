@@ -50,11 +50,11 @@ Security and confidentiality has become possible thanks to the use of the secure
 - [x] access to your files from anywhere in the world or from the local
   network
 
-  - [x] encryption
+- [x] encryption
 
-  - [x] privacy and confidentiality
+- [x] privacy and confidentiality
 
-  - [x] convenient and nice looking interface
+- [x] convenient and nice looking interface
 
     - [x] file preview(now only in upload interface)
 

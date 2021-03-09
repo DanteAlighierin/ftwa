@@ -97,14 +97,31 @@ sudo chmod +x cert.sh
 ./cert.sh
 
 ```
+
 or use the script:
 
 ```bash
+
 sudo chmod +x installer.sh
 ./installer.sh
 
 ```
 
+
+The installer will also install the necessary packages by itself, but you can also manually set the required yourself:
+
+- golang
+  
+  in fact, the core of the program is written on it, without it anywhere. It doesn't matter which compiler you install: google-go-lang or gcc-go. However only tested on gcc-go.
+
+- openssl
+
+  most distributions install openssl, however, for example, void linux (until March 9, 2021) uses libressl.
+
+
+- qrencode is required to generate qr code in the terminal.
+
+In the future, it is planned to release the program as an independent binary file (at the moment it still requires a preconfigured environment), as well as publication in repositories and ports of various Linux distributions and BSD derevatives, which will naturally require the automatic installation of the required packages, which will be implemented in the future ...
 
 Run app interactively:
 

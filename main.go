@@ -22,17 +22,14 @@ func KeyHandler() {
 
 	signal.Notify(c, os.Interrupt, syscall.SIGTERM)
 
-	func() {
-
+	go func() {
 		<-c
 
 		fmt.Println("\r- Ctrl+C pressed in Terminal")
 		os.Exit(0)
 		number := GoRoutineChannel()
 		close(number)
-
 	}()
-
 }
 
 func GoRoutineChannel() chan int {
@@ -69,7 +66,7 @@ func generator() {
 
 	if err != nil {
 
-		panic(err)
+		fmt.Println("Couldn't generate 'downloads' page")
 
 	}
 
@@ -184,8 +181,7 @@ func main() {
 	testOut, err := testCmd.Output()
 
 	if err != nil {
-		//panic(err)
-		fmt.Println("")
+		fmt.Println("Couldn't generate qr")
 	}
 	generator()
 	//fmt.Println(string(testOut))
@@ -200,7 +196,6 @@ func main() {
 
 	ipex, err := ExternalIP()
 	if err != nil {
-		//panic(err)
 		fmt.Println("Couldn't connect to external service to get your external IP")
 	}
 	if ipex == "" {

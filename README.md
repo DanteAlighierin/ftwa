@@ -181,6 +181,10 @@ go test; go test -run '/test_func/stun'
 
 - prepare binary packages
 
+- autodetect domain
+
+- installer for other Linux distribution and BSD derevatives
+
 - rewrite some of the functions from bash to golang and move them into separate threads
 
 - refactor the css

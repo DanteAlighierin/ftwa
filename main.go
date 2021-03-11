@@ -4,6 +4,7 @@ import (
 	"bytes"
 	"errors"
 	"fmt"
+	"io"
 	"io/ioutil"
 	"log"
 	"net"
@@ -84,8 +85,8 @@ func uploadFile(w http.ResponseWriter, req *http.Request) {
 	//2. retrieve file from posted form data
 	file, handler, err := req.FormFile("myFile")
 	if err != nil {
-		fmt.Println("Error")
-		fmt.Println("err")
+		fmt.Println("Error retrieving the file")
+		fmt.Println(err)
 		return
 	}
 	defer file.Close() //print file's data
@@ -95,18 +96,31 @@ func uploadFile(w http.ResponseWriter, req *http.Request) {
 	fmt.Printf("MIME type: %+v\n", handler.Header)
 
 	//3. write temp file to server
-	tempFile, err := ioutil.TempFile("./static/temp-images", "upload-*")
+	//	tempFile, err := ioutil.TempFile("./static/temp-images", "upload-*")
+	//	if err != nil {
+	//		fmt.Println(err)
+	//		return
+	//	}
+	//	defer tempFile.Close()
+	//
+	//	fileBytes, err := ioutil.ReadAll(file)
+	//	if err != nil {
+	//		fmt.Println(err)
+	//	}
+	//	tempFile.Write(fileBytes)
+
+	dst, err := os.Create("./static/temp-images/" + handler.Filename)
+	defer dst.Close()
 	if err != nil {
-		fmt.Println(err)
+		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
 	}
-	defer tempFile.Close()
 
-	fileBytes, err := ioutil.ReadAll(file)
-	if err != nil {
-		fmt.Println(err)
+	if _, err := io.Copy(dst, file); err != nil {
+		http.Error(w, err.Error(), http.StatusInternalServerError)
+		return
 	}
-	tempFile.Write(fileBytes)
+	fmt.Printf("Successfully uploaded file\n")
 
 	//4. return whether or not  this has ben succesful
 	//fmt.Fprintf(w, "Successfully Uploaded File\n")

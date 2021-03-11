@@ -12,11 +12,10 @@ if (window.FileReader) {
 
 
 
-
 function doTest() {
 		if (document.getElementById("myFile").files.length === 0) { return; }  
 		var file = document.getElementById("myFile").files[0];
-		reader.readAsDataURL(file); 
+		reader.readAsDataURL(file);
 	}					          
 }
 else {					

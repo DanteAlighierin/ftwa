@@ -195,8 +195,6 @@ go test; go test -run '/test_func/stun'
 
 If you know how to solve the following problems, then open a pull request:
 
-- Unreadable filenames of uploaded files
-
 - Loss of cerificates
 
 - So far only Linux is supported (and possibly macOS X)

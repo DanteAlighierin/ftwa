@@ -84,14 +84,29 @@
           action="../upload"
           enctype="multipart/form-data"
           method="post"> Upload a file
-          <p><input type="file" id="myFile" name="myFile" size="30em" onchange="doTest()"></p>
+          <p><input 
+	      type="file" 
+	      id="myFile" 
+	      name="myFile" 
+	      size="30em" 
+	      multiple 
+	      onchange="doTest()">
+	  </p>
           
       
 
 
       </div>
           
-      <div class="submit"> <img id="uploadPreview" src="" width=165em; style="display:none"/></div>
+      <div class="submit"> <img 
+	                    id="uploadPreview" 
+			    src="" 
+			    width=165em; 
+			    style="display:none" />
+      </div>
+
+
+
           <div class="submit">     <input class="btn" class="s" style="color:#00c2c7" type="submit" value="confirm"/>
           </div>
 

@@ -1,6 +1,6 @@
 {
 	"ImportPath": "github.com/DanteAlighierin/ftwa",
-	"GoVersion": "go1.15",
+	"GoVersion": "go1.15.9",
 	"GodepVersion": "v80",
 	"Deps": []
 }

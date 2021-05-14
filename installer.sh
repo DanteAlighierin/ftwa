@@ -1,9 +1,6 @@
 #!/usr/bin/bash
 
 
-chmod +x qr.sh
-chmod +x cert.sh
-
 if grep -q void /etc/*-release #Search by keyword
 then sudo xbps-install go libressl qrencode git  #Installing packages using the package manager of a specific distro
 fi
@@ -31,7 +28,12 @@ fi
 
 #mkdir -p static/u static/temp-images
 
+git clone https://github.com/DanteAlighierin/ftwa.git
 
+cd ftwa
+
+chmod +x qr.sh
+chmod +x cert.sh
 
 ./cert.sh #generate certificates
 

@@ -1,9 +1,9 @@
 #!/usr/bin/bash
 
 
-if grep -q void /etc/*-release #Search by keyword
-then sudo xbps-install go libressl qrencode git  #Installing packages using the package manager of a specific distro
-fi
+#if grep -q void /etc/*-release #Search by keyword
+#then sudo xbps-install go libressl qrencode git  #Installing packages using the package manager of a specific distro
+#fi
 
 
 if grep -q slackware /etc/*-release #Search by keyword

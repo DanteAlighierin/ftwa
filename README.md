@@ -58,7 +58,7 @@ Security and confidentiality has become possible thanks to the use of the secure
 
     - [x] file preview(now only in upload interface)
 
-    - [x] dark theme 
+    - [x] dark theme
 
     - [x] adaptive design
 
@@ -111,8 +111,8 @@ sudo chmod +x installer.sh
 The installer will also install the necessary packages by itself, but you can also manually set the required yourself:
 
 - golang
-  
-  in fact, the core of the program is written on it, without it anywhere. It doesn't matter which compiler you install: google-go-lang or gcc-go. However only tested on gcc-go.
+
+   the application is written in Go, so you're not going anywhere without it. Doesn't matter which compiler you use: google-go-lang or gcc-go. However, I only tested on gcc-go.
 
 - openssl
 
@@ -198,12 +198,12 @@ If you know how to solve the following problems, then open a pull request:
 - Loss of cerificates
 
 - So far only Linux is supported (and possibly macOS X)
-	
+
 	Currently, work is underway to support Windows
 
 - The binary requires a pre-configured environment
 
-	For this reason, demos exist both to show the UI and to show the functional part separately. 
+	For this reason, demos exist both to show the UI and to show the functional part separately.
 	Since heroku does not support multilingual environments by default (ftwa backend is written in golang and bash)
 
 

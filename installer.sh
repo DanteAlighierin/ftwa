@@ -5,8 +5,6 @@ git clone https://github.com/DanteAlighierin/ftwa.git
 
 cd ftwa
 
-rm installer.sh
-
 chmod +x qr.sh
 chmod +x cert.sh
 chmod +x pkg.sh
@@ -18,3 +16,4 @@ chmod +x pkg.sh
 echo "Dependencies satisfied, certificates generated"
 echo "Go to 'ftwa' folder and enter 'go run main.go' to start the service"
 
+rm installer.sh

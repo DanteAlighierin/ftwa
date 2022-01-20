@@ -197,7 +197,8 @@ func main() {
 	if err != nil {
 		fmt.Println("Couldn't generate qr")
 	}
-	generator()
+	defer generator()
+	delete_out()
 	//fmt.Println(string(testOut))
 
 	//print public ip via using the module
@@ -227,7 +228,6 @@ func main() {
 	// set served directory
 	http.Handle("/", http.StripPrefix("/", http.FileServer(http.Dir("static"))))
 	setupRoutes()
-	delete_out()
 
 }
 
@@ -263,7 +263,7 @@ func internalIP() (string, error) {
 			if ip == nil {
 				continue // not an ipv4 address
 			}
-			return "Address in your local network: http://" + ip.String() + getPort(), nil
+			return "Address in your local network: https://" + ip.String() + getPort(), nil
 		}
 	}
 	return "", errors.New("are you connected to the network?")
@@ -301,5 +301,6 @@ func delete_out() {
 	     e := os.Remove("out.txt")
     if e != nil {
         log.Fatal(e)
+        fmt.Println("Couldn't delete out.txt")
         		}
 }

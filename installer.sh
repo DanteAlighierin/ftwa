@@ -9,6 +9,7 @@ rm installer.sh
 
 chmod +x qr.sh
 chmod +x cert.sh
+chmod +x pkg.sh
 
 ./pkg.sh
 ./cert.sh #generate certificates

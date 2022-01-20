@@ -71,7 +71,6 @@ Security and confidentiality has become possible thanks to the use of the secure
 ```bash
 
 git clone https://github.com/DanteAlighierin/ftwa.git
-cd ftwa
 
 ```
 
@@ -81,7 +80,6 @@ cd ftwa
 ```bash
 
 go get github.com/DanteAlighierin/ftwa
-cd go/src/github.com/DanteAlighierin/ftwa
 
 ```
 
@@ -93,15 +91,18 @@ Satisfy dependencies and generate certificates manually:
 ```bash
 
 ##generate certificates
+cd ftwa #or 'cd go/src/github.com/DanteAlighierin/ftwa' for go get method
 sudo chmod +x cert.sh
 ./cert.sh
+./pkg.sh
 
 ```
 
-or use the script:
+## Easy installation via script:
 
 ```bash
 
+wget https://github.com/DanteAlighierin/ftwa/blob/master/installer.sh 
 sudo chmod +x installer.sh
 ./installer.sh
 

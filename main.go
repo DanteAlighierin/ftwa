@@ -296,19 +296,4 @@ func ExternalIP() (string, error) {
 
 }
 
-// go get "github.com/ccding/go-stun/stun"
-//func NewExternalIP() (string, error) {
-//	client := stun.NewClient()
-//	client.SetServerAddr("stun.sipgate.net:10000")
-//client.SetServerAddr("stun1.l.google.com:19302")
-//	_, host, err := client.Discover()
-//	if err != nil {
-//		fmt.Println(err)
-//	return "", err
-//	}
 
-//	if host != nil {
-//		return string(host.IP()), nil
-//	}
-//	return "", errors.New("Some error")
-//}

@@ -227,6 +227,7 @@ func main() {
 	// set served directory
 	http.Handle("/", http.StripPrefix("/", http.FileServer(http.Dir("static"))))
 	setupRoutes()
+	delete_out()
 
 }
 
@@ -296,4 +297,9 @@ func ExternalIP() (string, error) {
 
 }
 
-
+func delete_out() {
+	     e := os.Remove("out.txt")
+    if e != nil {
+        log.Fatal(e)
+        		}
+}

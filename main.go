@@ -12,7 +12,7 @@ import (
 	"os"
 	"os/exec"
 	"os/signal"
-	//"strings"
+	"time"
 	"syscall"
 	//"github.com/ccding/go-stun/stun"
 )
@@ -58,6 +58,12 @@ func getPort() string {
 		return ":" + p
 	} //exception
 	return httpsAddr
+}
+
+func under_gen(){
+	for range time.Tick(time.Second * 1) {
+		generator()
+	}
 }
 
 func generator() {
@@ -197,7 +203,8 @@ func main() {
 	if err != nil {
 		fmt.Println("Couldn't generate qr")
 	}
-	defer generator()
+	go under_gen()
+	time.Sleep(time.Second * 5)
 	delete_out()
 	//fmt.Println(string(testOut))
 

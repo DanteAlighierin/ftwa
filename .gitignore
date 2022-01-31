@@ -5,6 +5,8 @@ temp-images/
 #don't commit auto generated file
 downloads.html
 
+static/downloads.html
+
 # Binaries for programs and plugins
 
 *.exe
@@ -17,7 +19,9 @@ downloads.html
 
 *.dylib
 
+*.crt
 
+*.key
 
 # Test binary, built with `go test -c`
 

@@ -186,6 +186,8 @@ go test; go test -run '/test_func/stun'
 
 - installer for other Linux distribution and BSD derevatives
 
+- builds for Windows 10 
+
 - rewrite some of the functions from bash to golang and move them into separate threads
 
 - refactor the css
